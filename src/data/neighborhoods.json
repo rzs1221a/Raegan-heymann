@@ -1,0 +1,1322 @@
+{
+  "regions": [
+    {
+      "slug": "amelia-island",
+      "name": "Amelia Island",
+      "title": "Amelia Island Neighborhoods",
+      "tagline": "Harbor town blocks, beach streets, and island neighborhoods on thirteen miles of barrier island.",
+      "intro": "Amelia Island's neighborhoods are older, more varied, and more walkable than most of coastal Florida. The island grew outward from the Fernandina Beach harbor, so its neighborhoods carry real history: Victorian blocks around Centre Street, the original Spanish town plat at Old Town, planned traditional neighborhoods like Amelia Park, and quiet beach streets east of Fletcher Avenue. Value here moves block by block — ocean proximity, walkability to downtown, tree canopy, and lot character each price differently. These pages break the island into the neighborhoods buyers actually search for, with schools, amenities, and a current read on resale pricing for each.",
+      "lat": 30.6423,
+      "lon": -81.4483,
+      "zoom": 11.6,
+      "bearing": -14,
+      "signature": "From above, the island's north half reads as a town that grew up with its harbor: the tight street grid meeting the Amelia River on one side and thirteen miles of Atlantic beach on the other, with Egans Creek's green marsh corridor running up the middle."
+    },
+    {
+      "slug": "amelia-island-plantation",
+      "name": "Amelia Island Plantation & South End",
+      "title": "Amelia Island Plantation & South-End Neighborhoods",
+      "tagline": "Gated club communities, golf and marsh frontage, and the resort corridor at the island's south end.",
+      "intro": "The south end of Amelia Island is where the island's resort history lives: the Amelia Island Plantation, the Omni resort corridor, and the Summer Beach communities that grew up around the Ritz-Carlton. Most neighborhoods here sit behind gates, many carry club membership options, and nearly all trade on some combination of golf, marsh, maritime forest, and Atlantic frontage. Inventory ranges from golf villas and oceanfront condos to large estate lots under oak canopy. Pricing follows privacy, frontage, and club access more than square footage. These pages cover each south-end community individually — what it is, what the fees and amenities look like, and where resale pricing currently sits.",
+      "lat": 30.5455,
+      "lon": -81.4495,
+      "zoom": 12.1,
+      "bearing": 16,
+      "signature": "The south end reads as forest first: fairways and rooflines threaded through oak canopy between the Intracoastal marsh and the dune line, with the resort villages glowing at the island's tip."
+    },
+    {
+      "slug": "yulee",
+      "name": "Yulee & Mainland",
+      "title": "Yulee & Mainland Nassau County Neighborhoods",
+      "tagline": "New master-planned towns, riverfront communities, and acreage on the mainland side of the bridge.",
+      "intro": "Yulee is the growth side of Nassau County: the mainland corridor between the I-95 interchange and the Amelia Island bridge where most of the area's new construction is happening. It ranges from full master-planned towns like Wildlight and Tributary, to established golf and riverfront communities like North Hampton and River Glen, to the historic rural settlements — Blackrock, Nassauville, Hedges, O'Neil — where acreage and older homesteads still trade. Buyers come here for newer homes, Yulee-district schools, and a shorter path to Jacksonville, while keeping the beach twenty minutes away. Each neighborhood page below covers builders and housing stock, schools, amenities and CDD/HOA context, and a current resale price band.",
+      "lat": 30.6205,
+      "lon": -81.5905,
+      "zoom": 11.2,
+      "bearing": 10,
+      "signature": "The mainland reads as a frontier in motion: new rooftops and town centers rising out of pine plantation along the A1A corridor, with the Nassau River and Lofton Creek winding through the parts that haven't changed in a century."
+    }
+  ],
+  "neighborhoods": [
+    {
+      "slug": "historic-downtown",
+      "name": "Historic Downtown & Centre Street",
+      "region": "amelia-island",
+      "tagline": "Victorian blocks, porches, and a working harbor at the walkable heart of Fernandina Beach.",
+      "intro": "Historic Downtown Fernandina Beach is the rarest kind of Florida neighborhood: a real nineteenth-century town grid you can live in. The fifty-block historic district spreads out from Centre Street, where shrimp boats, the marina, and a working waterfront sit two blocks from restaurants, galleries, and the 1878 courthouse. Housing stock is genuinely historic — Victorian, Queen Anne, and Florida vernacular homes, many restored, some still waiting — mixed with sensitive infill and renovated cottages on brick-paved streets under old oaks. Nothing here is produced in volume, so inventory is structurally scarce and walkability carries a durable premium. Buyers who choose downtown are usually choosing a pattern of life first: coffee, harbor light, porches, festivals, and neighbors they know by name. The beach is a five-minute drive or an easy bike ride across the island, close enough to use daily without paying oceanfront pricing.",
+      "schools": "Zoned for Southside Elementary, Fernandina Beach Middle, and Fernandina Beach High School (Nassau County School District).",
+      "amenities": [
+        "Centre Street shops, restaurants, and galleries within walking distance",
+        "Fernandina Harbor Marina and riverfront park",
+        "No HOA on most historic blocks; historic-district design review applies",
+        "Weekly farmers market, festivals, and the Amelia Island Book Festival"
+      ],
+      "priceNote": "Roughly $500K for cottages needing work to $2M+ for restored landmark homes; walkable blocks carry a durable premium.",
+      "searchUrl": "PENDING",
+      "lat": 30.6693,
+      "lon": -81.4632,
+      "thumb": "harbor",
+      "seoDescription": "Homes for sale in Historic Downtown Fernandina Beach on Amelia Island — Victorian blocks near Centre Street, schools, pricing, and lifestyle from Heymann Williams Realty.",
+      "signature": "From the air, downtown is the rare Florida grid that still points at its water: fifty blocks of tin roofs and oak crowns running straight down Centre Street to the shrimp docks and the Amelia River. The marsh islands beyond the harbor are protected, so the view line you buy here is the one you keep.",
+      "distances": [
+        {
+          "label": "Beach",
+          "value": "7 min"
+        },
+        {
+          "label": "Marina",
+          "value": "2 min walk"
+        },
+        {
+          "label": "I-95",
+          "value": "25 min"
+        },
+        {
+          "label": "JAX Airport",
+          "value": "40 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is there an HOA in the Historic District?",
+          "a": "Most historic blocks have no HOA. Exterior changes on contributing structures go through the city's historic-district design review instead, which protects the streetscape that drives values here."
+        },
+        {
+          "q": "Are short-term rentals allowed downtown?",
+          "a": "Fernandina Beach regulates short-term rentals by zoning district; parts of downtown allow them with registration while purely residential blocks are more restricted. Verify the specific parcel's zoning before underwriting rental income."
+        },
+        {
+          "q": "What does parking and flood insurance look like on the historic blocks?",
+          "a": "Most homes rely on street and alley parking, and elevations vary block to block — some of downtown sits on surprisingly high ground for a waterfront town. Pull the parcel's flood zone early; it materially affects carrying cost."
+        }
+      ],
+      "photos": [
+        {
+          "src": "/photos/neighborhoods/centre-street.jpg",
+          "alt": "Centre Street looking east through downtown Fernandina Beach",
+          "credit": "Michael Rivera",
+          "creditUrl": "https://commons.wikimedia.org/wiki/User:Michael_Rivera",
+          "license": "CC BY-SA 4.0"
+        },
+        {
+          "src": "/photos/neighborhoods/front-centre.jpg",
+          "alt": "The corner of Front and Centre Streets by the Fernandina harbor",
+          "credit": "Michael Rivera",
+          "creditUrl": "https://commons.wikimedia.org/wiki/User:Michael_Rivera",
+          "license": "CC BY-SA 4.0"
+        },
+        {
+          "src": "/photos/neighborhoods/palace-saloon.jpg",
+          "alt": "The Palace Saloon, Florida's oldest bar, on Centre Street",
+          "credit": "Carol M. Highsmith, Library of Congress",
+          "creditUrl": "https://www.loc.gov/pictures/collection/highsm/",
+          "license": "Public domain"
+        }
+      ]
+    },
+    {
+      "slug": "old-town-fernandina",
+      "name": "Old Town Fernandina",
+      "region": "amelia-island",
+      "tagline": "The original 1811 Spanish town plat on the Amelia River bluff — quiet, storied, and small.",
+      "intro": "Old Town is where Fernandina began: the original town site platted under Spanish rule in 1811 on a bluff above the Amelia River, just north of today's downtown. It is one of the last Spanish town plats in the Western Hemisphere still laid out on its original grid, and it feels distinct from the Victorian district — quieter, more residential, with river light, big trees, and a mix of historic homes, old Florida cottages, and newer builds tucked between them. Fort Clinch State Park is effectively the neighborhood's northern yard, and the Egans Creek Greenway runs nearby. Inventory is tiny; a handful of sales a year is normal, and riverfront or bluff positions rarely trade. Buyers here tend to know exactly what they are looking for: history, water, and a neighborhood that will never be built out further, a short bike ride from Centre Street.",
+      "schools": "Zoned for Nassau County schools — Southside Elementary, Fernandina Beach Middle, and Fernandina Beach High School.",
+      "amenities": [
+        "Amelia River bluff frontage and sunset water views",
+        "Adjacent to Fort Clinch State Park trails and beaches",
+        "Egans Creek Greenway access nearby",
+        "No HOA; National Register historic district"
+      ],
+      "priceNote": "Wide band due to scarce, varied stock — roughly $600K to $1.8M+, with river-view positions at the top.",
+      "searchUrl": "PENDING",
+      "lat": 30.6789,
+      "lon": -81.4573,
+      "thumb": "river",
+      "seoDescription": "Old Town Fernandina real estate — homes on the original 1811 Spanish plat above the Amelia River, near Fort Clinch. Schools, pricing, and current listings.",
+      "signature": "The aerial view explains Old Town instantly: the original 1811 grid perched on the river bluff, Fort Clinch's green peninsula guarding the inlet to the north, and the Egans Creek marsh sealing it off from the rest of the island. It is a neighborhood with hard, permanent edges — nothing new can crowd it.",
+      "distances": [
+        {
+          "label": "Downtown",
+          "value": "4 min"
+        },
+        {
+          "label": "Fort Clinch",
+          "value": "5 min"
+        },
+        {
+          "label": "Beach",
+          "value": "9 min"
+        },
+        {
+          "label": "I-95",
+          "value": "28 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How often do homes in Old Town actually come up for sale?",
+          "a": "A handful of sales in a typical year. The plat is small, owners stay, and riverfront or bluff positions can go years between trades. Serious buyers set up alerts and wait."
+        },
+        {
+          "q": "Is Old Town in a flood zone?",
+          "a": "The bluff itself is some of the higher ground on the island's north end, but low streets near the marsh differ. Flood mapping varies lot by lot here more than almost anywhere on the island — check the specific parcel."
+        },
+        {
+          "q": "Can I build new in Old Town?",
+          "a": "Occasionally — vacant and teardown lots do surface. New construction must respect the National Register district context, and the city reviews design accordingly."
+        }
+      ],
+      "photos": [
+        {
+          "src": "/photos/neighborhoods/fort-clinch.jpg",
+          "alt": "Fort Clinch State Park at the north tip of Amelia Island",
+          "credit": "bubba73 (Jud McCranie)",
+          "creditUrl": "https://commons.wikimedia.org/wiki/File:Fort_Clinch_State_Park,_Florida,_US.jpg",
+          "license": "CC BY-SA 3.0"
+        },
+        {
+          "src": "/photos/neighborhoods/pelicans-docks.jpg",
+          "alt": "Pelicans on the Amelia River docks below Old Town",
+          "credit": "Michael Rivera",
+          "creditUrl": "https://commons.wikimedia.org/wiki/User:Michael_Rivera",
+          "license": "CC BY-SA 4.0"
+        }
+      ]
+    },
+    {
+      "slug": "amelia-park",
+      "name": "Amelia Park",
+      "region": "amelia-island",
+      "tagline": "A traditional neighborhood design community in the center of the island — front porches, parks, and everything close.",
+      "intro": "Amelia Park is the island's traditional-neighborhood-design community: a walkable, new-urbanist village in the geographic center of Amelia Island, built from the late 1990s onward around parks, picket fences, and alley-loaded homes with real front porches. The plan works the way TND is supposed to — narrow streets calm traffic, greens and pocket parks anchor the blocks, and a small commercial center with the YMCA, shops, and offices sits inside the neighborhood itself. Housing ranges from cottages and townhomes to larger single-family homes facing the central park, most with the low-maintenance lots that let owners actually use the island. Location is the quiet advantage: mid-island means the beach, Centre Street, and the airport are each about ten minutes, and Amelia Island Elementary borders the neighborhood. Resale demand is steady from both families and downsizers, and well-kept homes on park-facing streets move quickly.",
+      "schools": "Amelia Island Elementary (adjacent to the neighborhood), Fernandina Beach Middle, and Fernandina Beach High School.",
+      "amenities": [
+        "Central park, greens, and pocket parks throughout",
+        "McArthur Family YMCA and Amelia Park Town Center in-neighborhood",
+        "Sidewalks and alley-loaded, porch-front streetscapes",
+        "HOA with architectural standards; modest annual dues"
+      ],
+      "priceNote": "Townhomes from the $500Ks; single-family roughly $650K–$1.3M, park-facing homes at the top of the band.",
+      "searchUrl": "PENDING",
+      "lat": 30.6415,
+      "lon": -81.4527,
+      "thumb": "grid",
+      "seoDescription": "Amelia Park homes for sale — Amelia Island's walkable traditional neighborhood with parks, YMCA, and Amelia Island Elementary. Pricing, HOA, and lifestyle guide.",
+      "signature": "From above, Amelia Park looks like a diagram of how to build a neighborhood: a green central park ringed by porch-front streets, alleys hiding the garages, and the YMCA and town center stitched into the plan instead of bolted onto a highway. The geometry is the amenity.",
+      "distances": [
+        {
+          "label": "Beach",
+          "value": "8 min"
+        },
+        {
+          "label": "Downtown",
+          "value": "9 min"
+        },
+        {
+          "label": "YMCA",
+          "value": "in-neighborhood"
+        },
+        {
+          "label": "Airport (FHB)",
+          "value": "6 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What does the Amelia Park HOA cover and cost?",
+          "a": "A modest annual assessment maintains the parks, greens, and common landscaping, and an architectural review board keeps the TND design code intact. There is no CDD."
+        },
+        {
+          "q": "Are the lots really that small?",
+          "a": "Lots are intentionally compact — the plan trades private yard for shared greens, sidewalks, and walkability. Park-facing homes effectively borrow the central green as a front yard."
+        },
+        {
+          "q": "Is Amelia Park good for families?",
+          "a": "It is one of the island's most family-oriented addresses: Amelia Island Elementary borders the neighborhood, the YMCA is inside it, and the street design keeps traffic slow."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "seaside",
+      "name": "Seaside",
+      "region": "amelia-island",
+      "tagline": "Beach-block living near Main Beach — cottages and coastal homes steps from the sand.",
+      "intro": "Seaside covers the beach blocks of Fernandina Beach around Sadler Road and south of Main Beach Park, where the island's everyday beach life happens. This is not a gated enclave; it is a grid of short streets running to the dunes, with a genuinely mixed housing stock — original concrete-block beach cottages, elevated newer coastal builds, duplexes, and the occasional oceanfront home along South Fletcher Avenue. The draw is simple and durable: walk to the beach without resort fees or gates, with Main Beach's playgrounds and volleyball courts, the Sandbar and Salty Pelican stretch, and Sadler Road's restaurants and groceries a bike ride away. Because lots are platted and re-buildable, the neighborhood keeps renewing itself, and value tracks distance to the sand almost linearly. Buyers range from primary residents to second-home owners and investors, since short-term rental zones exist on parts of the beachside.",
+      "schools": "Zoned for Nassau County schools — Emma Love Hardee Elementary, Fernandina Beach Middle, and Fernandina Beach High School.",
+      "amenities": [
+        "Walk-to-beach access at multiple public walkovers",
+        "Main Beach Park: playground, volleyball, mini-golf, oceanfront dining",
+        "No HOA on most blocks; flexible use including some short-term-rental zones",
+        "Sadler Road shops, groceries, and restaurants nearby"
+      ],
+      "priceNote": "Roughly $550K for inland cottages to $2.5M+ for oceanfront on South Fletcher; proximity to the sand drives the band.",
+      "searchUrl": "PENDING",
+      "lat": 30.6275,
+      "lon": -81.4335,
+      "thumb": "beach",
+      "seoDescription": "Seaside and Main Beach area homes in Fernandina Beach — walk-to-beach cottages and coastal builds on Amelia Island. Pricing, schools, and current homes for sale.",
+      "signature": "The aerial tells Seaside's whole story in one frame: a ladder of short streets running from Fletcher Avenue straight into the dunes, Main Beach's bright umbrellas at the north end, and the Atlantic filling the right half of the picture. Value here is measured in those few hundred feet of walking distance.",
+      "distances": [
+        {
+          "label": "Beach",
+          "value": "walk"
+        },
+        {
+          "label": "Main Beach Park",
+          "value": "3 min"
+        },
+        {
+          "label": "Downtown",
+          "value": "8 min"
+        },
+        {
+          "label": "I-95",
+          "value": "30 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Can I short-term rent a home in the Seaside area?",
+          "a": "Parts of the beachside are zoned to allow registered vacation rentals, which is why investors watch these blocks. Rules differ street by street — confirm zoning and registration requirements per parcel."
+        },
+        {
+          "q": "What's the flood and wind insurance picture near the beach?",
+          "a": "Most of the beachside carries coastal wind exposure, and flood zones step down quickly west of the dune line. Newer elevated construction is significantly cheaper to insure than original slab cottages."
+        },
+        {
+          "q": "Is there an HOA?",
+          "a": "Most Seaside-area blocks are original city plat with no HOA — one reason teardown-rebuild activity is constant and the housing stock keeps renewing."
+        }
+      ],
+      "photos": [
+        {
+          "src": "/photos/neighborhoods/main-beach.jpg",
+          "alt": "Main Beach Park, the north anchor of Fernandina's beachside",
+          "credit": "Michael Rivera",
+          "creditUrl": "https://commons.wikimedia.org/wiki/User:Michael_Rivera",
+          "license": "CC BY-SA 4.0"
+        },
+        {
+          "src": "/photos/neighborhoods/stormy-sunrise.jpg",
+          "alt": "Storm light at sunrise over the Fernandina Beach shoreline",
+          "credit": "Patty O'Hearn Kickham",
+          "creditUrl": "https://commons.wikimedia.org/wiki/File:Stormy_sunrise_(471574293).jpg",
+          "license": "CC BY 2.0"
+        }
+      ]
+    },
+    {
+      "slug": "egans-bluff",
+      "name": "Egan's Bluff",
+      "region": "amelia-island",
+      "tagline": "Established homes on high ground beside the Egans Creek Greenway.",
+      "intro": "Egan's Bluff is a small, established neighborhood on some of the island's higher ground, set against the Egans Creek Greenway — the 300-acre protected marsh and trail corridor that runs up the middle of Amelia Island's north end. Homes here are mostly custom and semi-custom builds from the 1990s and 2000s on generous, mature-canopy lots, many backing directly to the greenway so the view line is protected marsh rather than a neighbor's fence. The location splits the difference between the island's two magnets: Centre Street's restaurants and the beach at Main Beach or Fort Clinch are each under ten minutes. Because the neighborhood is small and turnover is low, listings are occasional events rather than a steady stream, and greenway-backing lots command the premium. Buyers tend to be island-experienced — people who want elevation, trees, and quiet while staying close to town.",
+      "schools": "Zoned for Nassau County schools — Emma Love Hardee Elementary, Fernandina Beach Middle, and Fernandina Beach High School.",
+      "amenities": [
+        "Borders the Egans Creek Greenway trail system",
+        "Elevated lots with mature oak canopy",
+        "Small HOA with modest dues",
+        "Minutes to both downtown Fernandina and the beach"
+      ],
+      "priceNote": "Roughly $700K–$1.2M; greenway-backing lots and updated interiors set the top of the band.",
+      "searchUrl": "PENDING",
+      "lat": 30.6604,
+      "lon": -81.4445,
+      "thumb": "canopy",
+      "seoDescription": "Egan's Bluff homes for sale in Fernandina Beach — established Amelia Island neighborhood on the Egans Creek Greenway. Pricing, schools, and availability.",
+      "signature": "From above, Egan's Bluff sits on a green shoulder of high ground with the Egans Creek Greenway unrolling beside it — three hundred acres of protected marsh that reads as a dark ribbon between the neighborhood and the beachside. The Amelia Island Lighthouse, Florida's oldest, stands just across the creek.",
+      "distances": [
+        {
+          "label": "Beach",
+          "value": "6 min"
+        },
+        {
+          "label": "Downtown",
+          "value": "7 min"
+        },
+        {
+          "label": "Greenway trails",
+          "value": "walk"
+        },
+        {
+          "label": "I-95",
+          "value": "27 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is the Egans Creek Greenway?",
+          "a": "A 300-acre city-owned conservation corridor of marsh, creek, and trails running up the island's spine. Homes backing it look at protected land that cannot be developed."
+        },
+        {
+          "q": "How high is the ground, really?",
+          "a": "The bluff is among the island's higher residential elevations, which shows up in favorable flood zoning for much of the neighborhood — a quiet but real carrying-cost advantage."
+        },
+        {
+          "q": "How competitive are listings here?",
+          "a": "Turnover is low and greenway-backing homes are the ones buyers wait for. Well-priced listings routinely go under contract in days."
+        }
+      ],
+      "photos": [
+        {
+          "src": "/photos/neighborhoods/amelia-lighthouse.jpg",
+          "alt": "Amelia Island Lighthouse, Florida's oldest, beside Egans Creek",
+          "credit": "Natalie Maynor",
+          "creditUrl": "https://commons.wikimedia.org/wiki/File:Amelia_Island_Lighthouse_(16381969781).jpg",
+          "license": "CC BY 2.0"
+        }
+      ]
+    },
+    {
+      "slug": "ocean-view-estates",
+      "name": "Ocean View Estates",
+      "region": "amelia-island",
+      "tagline": "Quiet mid-island streets a short walk from the north beaches.",
+      "intro": "Ocean View Estates is one of the island's quieter addresses: a compact neighborhood of single-family homes east of Fletcher Avenue's north stretch, close enough to the ocean that several streets end at beach walkovers. The housing stock spans decades — ranch homes from the island's first beachside expansion, remodeled mid-century cottages, and newer elevated builds where original homes have been replaced — which keeps the streetscape varied and the entry price more approachable than the island's gated communities. There is no HOA layer on most blocks, so owners have flexibility that planned communities don't allow. The lifestyle is defined by proximity: beach mornings without driving, Fort Clinch State Park's trails a few minutes north, and downtown Fernandina under ten minutes away. For buyers who want walkable beach access on Amelia Island without club fees or gate codes, this pocket is consistently on the short list, and re-buildable lots continue to attract new construction.",
+      "schools": "Zoned for Nassau County schools — Emma Love Hardee Elementary, Fernandina Beach Middle, and Fernandina Beach High School.",
+      "amenities": [
+        "Short walk to north-island beach walkovers",
+        "No HOA on most streets; flexible ownership",
+        "Close to Fort Clinch State Park and the Egans Creek Greenway",
+        "Ten minutes to Centre Street downtown"
+      ],
+      "priceNote": "Roughly $500K–$1.1M depending on lot, updates, and steps to the sand; new elevated builds trade higher.",
+      "searchUrl": "PENDING",
+      "lat": 30.6555,
+      "lon": -81.4325,
+      "thumb": "dunes",
+      "seoDescription": "Ocean View Estates homes in Fernandina Beach — walkable north-beach neighborhood on Amelia Island with no HOA on most blocks. Pricing, schools, and listings.",
+      "signature": "The aerial shows why these blocks work: a quiet mesh of streets tucked between Fletcher Avenue and the dune walkovers on the island's north end, with Fort Clinch's maritime forest closing the view to the north. Ocean at the end of the street, state park as the permanent neighbor.",
+      "distances": [
+        {
+          "label": "Beach",
+          "value": "walk"
+        },
+        {
+          "label": "Fort Clinch",
+          "value": "4 min"
+        },
+        {
+          "label": "Downtown",
+          "value": "9 min"
+        },
+        {
+          "label": "I-95",
+          "value": "29 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is there an HOA?",
+          "a": "Most streets here are original plat with no HOA — owners repaint, rebuild, and rent with city zoning as the only overlay. That flexibility is a core part of the value."
+        },
+        {
+          "q": "What's the housing stock like?",
+          "a": "A genuine mix: 1960s–80s concrete-block ranches, remodeled cottages, and new elevated coastal builds where originals have been replaced. The variety keeps entry prices broader than the gated communities."
+        },
+        {
+          "q": "How's beach access?",
+          "a": "Public walkovers dot the dune line along Fletcher; several streets end within a short walk of the sand, with no gates or fees involved."
+        }
+      ],
+      "photos": [
+        {
+          "src": "/photos/neighborhoods/fort-clinch-ramparts.jpg",
+          "alt": "The brick ramparts of Fort Clinch above the beach",
+          "credit": "Reweaver33",
+          "creditUrl": "https://commons.wikimedia.org/wiki/File:Fort_Clinch,_Fernandina_Beach,_Florida.jpg",
+          "license": "CC BY-SA 4.0"
+        }
+      ]
+    },
+    {
+      "slug": "azalea-pointe",
+      "name": "Azalea Pointe",
+      "region": "amelia-island",
+      "tagline": "A small canopy neighborhood in the island's convenient mid-section.",
+      "intro": "Azalea Pointe is a small planned neighborhood in Amelia Island's mid-section, tucked under oak and pine canopy off the island's central corridor. Homes are predominantly single-family builds from the 2000s onward — coastal and craftsman-influenced designs on modest, low-maintenance lots — with a scale that keeps the neighborhood genuinely quiet; there are only a few dozen homesites, so through-traffic simply doesn't exist. What the address really sells is position. The mid-island location puts the beach, Amelia Park's YMCA and shops, the schools cluster, and downtown Fernandina all within about a ten-minute radius, which is why the neighborhood draws year-round residents more than seasonal owners. A modest HOA keeps common areas and streetscapes consistent without resort-level fees. Turnover is limited — a handful of resales in a typical year — so buyers watching this neighborhood should expect to move quickly when a well-priced home lists.",
+      "schools": "Zoned for Nassau County schools — Amelia Island area elementary, Fernandina Beach Middle, and Fernandina Beach High School.",
+      "amenities": [
+        "Quiet cul-de-sac streets under mature canopy",
+        "Modest HOA with maintained common areas",
+        "Central island location — beach and downtown each ~10 minutes",
+        "Near Amelia Park Town Center and the YMCA"
+      ],
+      "priceNote": "Roughly $550K–$850K for well-kept resales; limited turnover keeps the band firm.",
+      "searchUrl": "PENDING",
+      "lat": 30.6355,
+      "lon": -81.4475,
+      "thumb": "canopy",
+      "seoDescription": "Azalea Pointe homes for sale on Amelia Island — small canopy neighborhood minutes from the beach and downtown Fernandina. Pricing, HOA, and school zones.",
+      "signature": "From above, Azalea Pointe is a pocket of rooftops almost hidden in the island's mid-section canopy — a few quiet loops of street under oak and pine, minutes from everything but visible from almost nowhere. The tree cover is the neighborhood's signature.",
+      "distances": [
+        {
+          "label": "Beach",
+          "value": "9 min"
+        },
+        {
+          "label": "Downtown",
+          "value": "10 min"
+        },
+        {
+          "label": "Amelia Park shops",
+          "value": "4 min"
+        },
+        {
+          "label": "Airport (FHB)",
+          "value": "7 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How big is Azalea Pointe?",
+          "a": "A few dozen homesites — small enough that there is no through-traffic and listings are occasional events rather than a steady stream."
+        },
+        {
+          "q": "What are the HOA dues like?",
+          "a": "Modest annual dues covering common-area landscaping and entry maintenance. No CDD, no club obligation."
+        },
+        {
+          "q": "Who does the neighborhood suit best?",
+          "a": "Year-round residents who want new-ish construction and a central location without resort fees — it draws more primary homeowners than seasonal buyers."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "long-point",
+      "name": "Long Point",
+      "region": "amelia-island-plantation",
+      "tagline": "Gated golf and marsh living inside Amelia Island Plantation, with club membership on the Long Point course.",
+      "intro": "Long Point is one of the Amelia Island Plantation's signature gated neighborhoods, built around Tom Fazio's Long Point golf course — the private club course that threads dunes, marsh, and maritime forest on the island's south end. Homes are custom builds on generous lots, many with fairway frontage, marsh views toward the Intracoastal, or both, under the oak canopy that defines the Plantation. Ownership here typically pairs with Amelia Island Club membership options, which open the club's golf, tennis, beach club, and dining. The neighborhood's value logic is classic Plantation: privacy behind the gate, protected view corridors that can't be built out, and scarcity — Long Point homes trade infrequently, and marsh-front positions are genuinely rare. Buyers are usually comparing across the Plantation's neighborhoods and choose Long Point for the combination of club golf and big western marsh light. The beach, resort amenities, and Omni village shops are minutes away inside the gates.",
+      "schools": "Zoned for Nassau County schools; most buyers here weigh club amenities over attendance zones.",
+      "amenities": [
+        "Gated entry within Amelia Island Plantation",
+        "Tom Fazio Long Point golf course frontage",
+        "Amelia Island Club membership options (golf, tennis, beach club, dining)",
+        "Marsh and Intracoastal view corridors; Plantation POA"
+      ],
+      "priceNote": "Roughly $900K–$2.5M+; marsh-front and double-frontage lots set the ceiling. Club fees separate from POA dues.",
+      "searchUrl": "PENDING",
+      "lat": 30.5512,
+      "lon": -81.4562,
+      "thumb": "golf",
+      "seoDescription": "Long Point homes for sale in Amelia Island Plantation — gated golf and marsh community on the Fazio Long Point course with Amelia Island Club membership options.",
+      "signature": "The aerial reads like a private map: Fazio fairways threading dunes and maritime forest, the tidal creeks of the Intracoastal marsh wrapping the western edge, and large rooflines spaced far apart under the oaks. Marsh-front lots here face a protected horizon — the sunset view is permanent inventory.",
+      "distances": [
+        {
+          "label": "Beach club",
+          "value": "5 min"
+        },
+        {
+          "label": "Omni village",
+          "value": "6 min"
+        },
+        {
+          "label": "Downtown",
+          "value": "15 min"
+        },
+        {
+          "label": "JAX Airport",
+          "value": "45 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Do I have to join the Amelia Island Club to buy in Long Point?",
+          "a": "Ownership and club membership are separate decisions; membership options (golf, sports, social) are available to Plantation owners and most Long Point buyers take one. Budget club initiation and dues alongside POA fees."
+        },
+        {
+          "q": "What do the fees look like?",
+          "a": "Plantation POA dues cover gates, security, and common grounds; club membership is additional and tiered. All-in carrying cost is a meaningful line item — we model it with buyers before offers."
+        },
+        {
+          "q": "How rare are marsh-front listings?",
+          "a": "Genuinely rare. Long Point trades a handful of homes a year, and true marsh-front positions can go multiple years between sales."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "marsh-creek",
+      "name": "Marsh Creek",
+      "region": "amelia-island-plantation",
+      "tagline": "Golf and marsh frontage under the oaks in the heart of the Plantation.",
+      "intro": "Marsh Creek sits in the interior of Amelia Island Plantation where the golf corridors meet the tidal marsh, and it delivers exactly what its name promises: homes and villas looking across fairways to winding creeks and spartina flats. The stock is a mix — single-family homes and patio homes built from the 1980s onward, many renovated to current coastal standards — on streets that curve under mature live oaks. Western exposure over the marsh gives many properties the sunset light that Plantation buyers pay for, and golf frontage along the Oak Marsh course adds a second view amenity without the maintenance of oceanfront. Marsh Creek's pricing sits below the Plantation's oceanfront and estate tiers, which makes it a frequent entry point into the community for buyers who want the gates, security, and club options without a seven-figure-plus commitment. As with all Plantation neighborhoods, POA fees apply, and Amelia Island Club membership is optional but widely used.",
+      "schools": "Zoned for Nassau County schools; attendance zones matter less than club and POA context for most buyers here.",
+      "amenities": [
+        "Oak Marsh golf course and tidal-marsh frontage",
+        "Inside Amelia Island Plantation gates with 24-hour security",
+        "Optional Amelia Island Club membership",
+        "Plantation POA covering common areas and roads"
+      ],
+      "priceNote": "Roughly $600K–$1.3M for homes and villas; marsh-front sunset exposure tops the band.",
+      "searchUrl": "PENDING",
+      "lat": 30.5395,
+      "lon": -81.4568,
+      "thumb": "marsh",
+      "seoDescription": "Marsh Creek homes and villas in Amelia Island Plantation — golf and marsh frontage behind the gates. Pricing, POA context, and current listings.",
+      "signature": "From above, Marsh Creek is where the Plantation's green geometry meets the tide: Oak Marsh fairways on one side, winding spartina creeks on the other, and homes set in the seam between them. Western exposure means the marsh lights up gold at the end of the day.",
+      "distances": [
+        {
+          "label": "Beach walkovers",
+          "value": "6 min"
+        },
+        {
+          "label": "Omni village",
+          "value": "5 min"
+        },
+        {
+          "label": "Racquet park",
+          "value": "4 min"
+        },
+        {
+          "label": "Downtown",
+          "value": "14 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is Marsh Creek a good entry point into the Plantation?",
+          "a": "It is often exactly that — homes and patio homes here price below the oceanfront and estate tiers while carrying the same gates, security, and club eligibility."
+        },
+        {
+          "q": "What's the difference between POA dues and club fees?",
+          "a": "POA dues are mandatory for all Plantation owners and fund infrastructure and security. Amelia Island Club membership is optional and separate — golf, tennis, beach club, and dining tiers."
+        },
+        {
+          "q": "Do villas here rent through the resort?",
+          "a": "Some patio homes and villas participate in rental programs; single-family streets are predominantly owner-occupied or seasonal. Rental eligibility varies by section — verify per property."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "beach-wood",
+      "name": "Beach Wood",
+      "region": "amelia-island-plantation",
+      "tagline": "Classic Plantation golf villas in the maritime forest, minutes from the beach walkways.",
+      "intro": "Beach Wood is one of Amelia Island Plantation's original villa neighborhoods — low-rise golf villas and townhomes set into the maritime forest along the Plantation's fairway corridors. These are the residences that established the Plantation's architectural language in the 1970s and 80s: cedar and stucco, deep balconies, and buildings placed to keep the oak canopy intact, so the neighborhood reads as forest first and housing second. Villas range from one-bedroom retreats to three-bedroom homes, and because many owners use them seasonally or as managed rentals through the resort program, Beach Wood is often the most liquid entry point into Plantation ownership. The beach walkovers, club facilities, and Omni resort village are all reachable by bike or the Plantation's trail network. Value tracks renovation level and view — golf-front, lagoon, and forest positions each price differently — and HOA/regime fees cover exterior maintenance, which buyers should factor alongside the purchase price.",
+      "schools": "Zoned for Nassau County schools; predominantly second-home and rental-program ownership.",
+      "amenities": [
+        "Golf, lagoon, and forest-view villas within the Plantation",
+        "Resort rental program eligibility for many units",
+        "Trail and bike-path network to beach walkovers",
+        "Regime/HOA fees covering exteriors and grounds"
+      ],
+      "priceNote": "Roughly $350K–$800K depending on size, view, and renovation; strongest rental-yield tier in the Plantation.",
+      "searchUrl": "PENDING",
+      "lat": 30.5338,
+      "lon": -81.4442,
+      "thumb": "golf",
+      "seoDescription": "Beach Wood villas for sale in Amelia Island Plantation — classic golf villas in the maritime forest with resort rental eligibility. Pricing and fee context.",
+      "signature": "The aerial barely shows the buildings — which is the point. Beach Wood's villas sit under nearly continuous oak canopy along the fairway corridors, cedar rooflines surfacing between crowns, with the dune line and the Atlantic a short pedal away on the Plantation's trail network.",
+      "distances": [
+        {
+          "label": "Beach walkovers",
+          "value": "bike"
+        },
+        {
+          "label": "Omni village",
+          "value": "4 min"
+        },
+        {
+          "label": "Golf",
+          "value": "adjacent"
+        },
+        {
+          "label": "Downtown",
+          "value": "14 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What do regime fees cover in Beach Wood?",
+          "a": "Villa regimes typically cover exterior maintenance, roofs, grounds, and insurance on the structure envelope — which is why carrying cost per square foot runs higher than single-family but ownership stays hands-off."
+        },
+        {
+          "q": "Can I put my villa in the Omni rental program?",
+          "a": "Many Beach Wood villas are eligible for resort or independent rental management, making this the Plantation's most liquid income-oriented tier. Confirm program terms and revenue splits per unit."
+        },
+        {
+          "q": "Are these full-time homes?",
+          "a": "Some are — but the mix leans second-home and seasonal. One-level plans and lock-and-leave maintenance make them popular first steps into Plantation ownership."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "brady-point-preserve",
+      "name": "Brady Point Preserve",
+      "region": "amelia-island-plantation",
+      "tagline": "A 53-acre gated preserve of estate lots on the marsh side of the south island.",
+      "intro": "Brady Point Preserve is the south island's estate-lot enclave: roughly 53 gated acres on the Intracoastal marsh side, platted into a small number of large homesites where owners build custom. The neighborhood was conceived as a preserve first — significant acreage is held as conservation buffer, the road winds through retained forest, and lots are sized so each home sits in its own envelope of trees and marsh edge. The result is the closest thing the south end offers to private compound living while remaining minutes from the Plantation's gates, the Omni village, and the beach. Because the community is small and build-outs are custom, inventory is scarce in both directions: unbuilt lots surface occasionally, and finished-home resales are rarer still. Buyers here are typically comparing against Long Point estates and mainland acreage, and choose Brady Point for western marsh light, deep privacy, and the absence of club-obligation overhead — amenities are the land itself.",
+      "schools": "Zoned for Nassau County schools; estate-lot buyers typically prioritize land and privacy over attendance zones.",
+      "amenities": [
+        "Gated, 53-acre preserve community with conservation buffers",
+        "Large estate homesites for custom construction",
+        "Intracoastal marsh frontage and sunset exposure on select lots",
+        "Modest HOA; no club obligation"
+      ],
+      "priceNote": "Lots roughly $400K–$900K; finished custom homes $1.5M+ when they trade. Review quarterly — thin comp set.",
+      "searchUrl": "PENDING",
+      "lat": 30.5468,
+      "lon": -81.4672,
+      "thumb": "marsh",
+      "seoDescription": "Brady Point Preserve — gated 53-acre estate-lot community on Amelia Island's marsh side. Lots, custom homes, pricing, and availability from Heymann Williams.",
+      "signature": "From above, Brady Point is mostly trees — 53 acres where the clearings are the exception. A single road winds through retained forest to a handful of estate envelopes on the Intracoastal marsh edge, each house sitting in its own green buffer with open water light to the west.",
+      "distances": [
+        {
+          "label": "Plantation gates",
+          "value": "4 min"
+        },
+        {
+          "label": "Beach",
+          "value": "7 min"
+        },
+        {
+          "label": "Omni village",
+          "value": "7 min"
+        },
+        {
+          "label": "Downtown",
+          "value": "13 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Can I build a custom home on my own timeline?",
+          "a": "Yes — Brady Point is a custom-build community with design standards but no production builder program. Most owners bring their own architect and builder."
+        },
+        {
+          "q": "Are there club obligations?",
+          "a": "No. Brady Point sits outside the Plantation's club structure — a modest HOA maintains the gate and road, and owners can pursue Amelia Island Club membership independently if they want it."
+        },
+        {
+          "q": "How scarce is inventory really?",
+          "a": "Structurally scarce: a small number of lots, custom build-outs, and owners who came for privacy. Both unbuilt lots and finished homes trade infrequently."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "ocean-village",
+      "name": "Ocean Village",
+      "region": "amelia-island-plantation",
+      "tagline": "111 homes between the dunes and the forest, with lawn service handled and the beach at the end of the boardwalk.",
+      "intro": "Ocean Village is a gated community of 111 single-family homes at the island's south end, positioned between the Atlantic dunes and the maritime forest just north of the Plantation proper. It occupies an unusual niche: true near-ocean single-family living — several streets sit one row from the dune line with private boardwalk access — without being inside a resort's rental churn. The community is intentionally residential in feel; homes range from original 1980s beach architecture to fully rebuilt contemporary coastal houses, and the HOA covers lawn service for every home, which makes Ocean Village particularly workable for seasonal owners and lock-and-leave buyers. Amenities are proportionate rather than resort-scale: community pool, tennis, and the beach walkovers that are the real point. Inventory logic is simple — with only 111 homes and durable owner loyalty, a handful of sales a year is typical, and dune-row homes command a clear premium over forest-side streets.",
+      "schools": "Zoned for Nassau County schools; a mix of primary, seasonal, and second-home ownership.",
+      "amenities": [
+        "Gated community of 111 single-family homes",
+        "HOA-provided lawn service for all homes",
+        "Private beach boardwalk access, community pool, and tennis",
+        "No resort rental program — residential quiet"
+      ],
+      "priceNote": "Roughly $800K forest-side to $2M+ on the dune rows; renovated coastal rebuilds set recent highs.",
+      "searchUrl": "PENDING",
+      "lat": 30.5282,
+      "lon": -81.4378,
+      "thumb": "dunes",
+      "seoDescription": "Ocean Village on Amelia Island — gated 111-home beach community with HOA lawn service and private boardwalk access. Pricing, HOA details, and homes for sale.",
+      "signature": "The aerial shows a rare arrangement: 111 single-family rooftops in the seam between the dune line and the maritime forest, private boardwalks reaching over the dunes to an uncrowded stretch of Atlantic. No towers, no rental churn — just houses, trees, and the beach.",
+      "distances": [
+        {
+          "label": "Beach",
+          "value": "boardwalk"
+        },
+        {
+          "label": "Omni village",
+          "value": "3 min"
+        },
+        {
+          "label": "Golf",
+          "value": "5 min"
+        },
+        {
+          "label": "Downtown",
+          "value": "16 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What does the Ocean Village HOA include?",
+          "a": "Gate, community pool, tennis, the private beach boardwalks — and lawn service for every home, which is why the community works so well for seasonal and lock-and-leave owners."
+        },
+        {
+          "q": "Can homes here be short-term rented?",
+          "a": "Ocean Village is intentionally residential; there is no resort rental program and the community's rules favor longer-term use. Investors chasing nightly rates should look at the resort tiers instead."
+        },
+        {
+          "q": "What's the difference between dune-row and forest-side streets?",
+          "a": "Roughly a doubling of price. Dune-row homes carry ocean light and direct boardwalk proximity; forest-side streets buy the same gate and beach access at a friendlier number."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "summer-beach",
+      "name": "Summer Beach",
+      "region": "amelia-island-plantation",
+      "tagline": "The resort corridor around the Ritz-Carlton — golf villas, ocean condos, and gated home enclaves.",
+      "intro": "Summer Beach is the resort corridor that grew up around the Ritz-Carlton, Amelia Island: a collection of gated enclaves, golf villages, and oceanfront condominiums spread along the Golf Club of Amelia Island's fairways between A1A and the Atlantic. It is less a single neighborhood than a family of them — single-family enclaves like the Sanctuary and Beachwalker areas, villa communities on the golf course, and beachfront buildings with elevator-serviced flats — united by the corridor's manicured, resort-adjacent character. The Ritz anchors the value: proximity to five-star dining, spa, and services is a durable premium that doesn't depend on any single market cycle. Buyers range from primary residents in the gated home sections to seasonal owners who want oceanfront lock-and-leave with hotel services next door. Fees vary widely by enclave — condo regimes, villa HOAs, and master association layers — so per-property fee diligence matters more here than anywhere else on the island.",
+      "schools": "Zoned for Nassau County schools; predominantly resort-corridor and second-home ownership.",
+      "amenities": [
+        "Golf Club of Amelia Island fairway settings",
+        "Adjacent to the Ritz-Carlton, Amelia Island — dining, spa, services",
+        "Mix of gated single-family enclaves, villas, and oceanfront condos",
+        "Beach access points along the corridor; enclave-specific HOAs"
+      ],
+      "priceNote": "Villas from ~$500K; single-family $900K–$3M; oceanfront condos $700K–$2.5M+ by building and floor.",
+      "searchUrl": "PENDING",
+      "lat": 30.5942,
+      "lon": -81.4447,
+      "thumb": "beach",
+      "seoDescription": "Summer Beach real estate on Amelia Island — Ritz-Carlton corridor golf villas, oceanfront condos, and gated enclaves. Pricing bands and current listings.",
+      "signature": "From above, Summer Beach is a resort corridor in cross-section: the Golf Club of Amelia Island's fairways pooling around gated enclaves, the Ritz-Carlton's roofline anchoring the dune, and a line of oceanfront buildings holding the beach edge. Historic American Beach sits just to the south.",
+      "distances": [
+        {
+          "label": "Beach",
+          "value": "walk/short drive"
+        },
+        {
+          "label": "Ritz-Carlton",
+          "value": "adjacent"
+        },
+        {
+          "label": "Downtown",
+          "value": "12 min"
+        },
+        {
+          "label": "JAX Airport",
+          "value": "42 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Why do fees vary so much across Summer Beach?",
+          "a": "Because it is a family of communities, not one: master association plus enclave HOAs, villa regimes, or condo associations stack differently by address. We build a full fee picture per property before offers."
+        },
+        {
+          "q": "Is the Ritz proximity really worth a premium?",
+          "a": "Durably, yes — five-star dining, spa, and services next door is an amenity that doesn't age, and resale data around the corridor consistently reflects it."
+        },
+        {
+          "q": "Are oceanfront condos here rentable?",
+          "a": "Most buildings allow rentals within association rules, and several run strong seasonal calendars. Minimum-stay rules and management terms vary building by building."
+        }
+      ],
+      "photos": [
+        {
+          "src": "/photos/neighborhoods/american-beach.jpg",
+          "alt": "Historic American Beach, founded in 1935, at the south end of the corridor",
+          "credit": "Amc333",
+          "creditUrl": "https://commons.wikimedia.org/wiki/File:AmericanBeach1.JPG",
+          "license": "CC0"
+        }
+      ]
+    },
+    {
+      "slug": "omni-resort-area",
+      "name": "Omni Resort Area",
+      "region": "amelia-island-plantation",
+      "tagline": "The top of the island's market — oceanfront homes and condominiums around the Omni Amelia Island Resort.",
+      "intro": "The Omni resort area is the top of Amelia Island's market: the oceanfront and near-ocean properties surrounding the Omni Amelia Island Resort at the island's southern tip. This is where the island's most valuable real estate concentrates — dune-front single-family homes, penthouse-grade condominiums in buildings like the Dunes Club, and villas positioned on the resort's beach, golf, and racquet-park amenities. Ownership here can plug directly into the resort ecosystem: rental program participation for condos and villas, club access, and the shops and restaurants of the resort village, all inside the Plantation's gated perimeter. The value logic is frontage and finish — direct ocean exposure, elevation, and renovation quality dominate pricing, and the thin supply of true dune-front homes means record sales tend to happen here first. Buyers at this tier are usually cross-shopping other Southeast resort coasts; the pitch for Amelia is thirteen miles of beach with a fraction of the density.",
+      "schools": "Zoned for Nassau County schools; primarily second-home, seasonal, and investment ownership.",
+      "amenities": [
+        "Omni Amelia Island Resort — beach club, golf, racquet park, spa, village shops",
+        "Oceanfront homes and condominiums with resort rental options",
+        "Inside the Plantation's gated perimeter with 24-hour security",
+        "Building- and enclave-specific regimes and fees"
+      ],
+      "priceNote": "Condos ~$600K–$2.5M+; dune-front homes $2.5M–$6M+. Top of the island's market — review quarterly.",
+      "searchUrl": "PENDING",
+      "lat": 30.5228,
+      "lon": -81.4338,
+      "thumb": "dunes",
+      "seoDescription": "Omni resort-area real estate on Amelia Island — oceanfront homes, Dunes Club condos, and resort villas at the top of the island's market. Pricing and listings.",
+      "signature": "The aerial at the island's southern tip is pure geography-as-luxury: the Omni's village and pools set against an uncrowded beach, golf greens cut into maritime forest, and Amelia Island State Park closing the view south — protected land all the way to the inlet. This is the island's most valuable frame.",
+      "distances": [
+        {
+          "label": "Beach",
+          "value": "on-site"
+        },
+        {
+          "label": "State park",
+          "value": "adjacent"
+        },
+        {
+          "label": "Downtown",
+          "value": "17 min"
+        },
+        {
+          "label": "JAX Airport",
+          "value": "45 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What's the rental upside for condos here?",
+          "a": "The strongest on the island — resort demand fills calendars year-round, and buildings with rental programs publish real revenue histories. Underwrite fees and program splits carefully; they're substantial."
+        },
+        {
+          "q": "What separates the top-tier buildings and homes?",
+          "a": "Direct dune frontage, floor height, and renovation quality. Record sales on the island tend to happen in this corridor first."
+        },
+        {
+          "q": "Does the state park to the south matter for value?",
+          "a": "Materially: it guarantees the southern horizon stays wild — no future construction between the resort area and the inlet."
+        }
+      ],
+      "photos": [
+        {
+          "src": "/photos/neighborhoods/amelia-island-sp.jpg",
+          "alt": "Amelia Island State Park, the protected southern tip of the island",
+          "credit": "Ebyabe",
+          "creditUrl": "https://commons.wikimedia.org/wiki/File:Amelia_Island_SP03.jpg",
+          "license": "CC BY-SA 3.0"
+        }
+      ]
+    },
+    {
+      "slug": "osprey-village",
+      "name": "Osprey Village",
+      "region": "amelia-island-plantation",
+      "tagline": "55+ living on the Plantation's south end, steps from club amenities.",
+      "intro": "Osprey Village is the island's dedicated 55+ community, set on the south end adjacent to the Amelia Island Plantation with the resort's golf, beach, and dining infrastructure effectively next door. The community pairs independent living in cottages and villas with a continuing-care dimension — a rarity on a barrier island, and the reason many long-time Amelia homeowners transition here rather than leaving the island. The residential product is right-sized: single-level cottages and apartment residences with maintenance handled, social programming built in, and the Plantation's oak-canopy setting intact. For buyers evaluating 55+ options across Northeast Florida, Osprey Village's differentiator is place — most age-qualified communities sit along the I-95 corridor; this one sits ten minutes from the Atlantic with the island's restaurants, festivals, and healthcare (Baptist Medical Center Nassau) close by. Availability is structurally limited and often list-driven, so buyers should expect a conversation about timing as much as inventory.",
+      "schools": "Age-qualified 55+ community — school zoning is not a purchase factor.",
+      "amenities": [
+        "55+ community with independent-living cottages and residences",
+        "Maintenance-included living with social programming",
+        "Adjacent to Amelia Island Plantation amenities",
+        "Near Baptist Medical Center Nassau"
+      ],
+      "priceNote": "Entry and fee structures vary by residence type; cottages and villas typically $400K–$800K equivalent. Review quarterly.",
+      "searchUrl": "PENDING",
+      "lat": 30.5405,
+      "lon": -81.4498,
+      "thumb": "canopy",
+      "seoDescription": "Osprey Village — Amelia Island's 55+ community beside the Plantation. Cottages, villas, fees, and availability from Heymann Williams Realty.",
+      "signature": "From above, Osprey Village sits inside the Plantation's canopy like any other south-end neighborhood — cottages and residences under the oaks — which is exactly its promise: 55+ living that stays on the island, next to the club, ten minutes from the Atlantic.",
+      "distances": [
+        {
+          "label": "Plantation amenities",
+          "value": "adjacent"
+        },
+        {
+          "label": "Beach",
+          "value": "6 min"
+        },
+        {
+          "label": "Baptist Nassau hospital",
+          "value": "10 min"
+        },
+        {
+          "label": "Downtown",
+          "value": "14 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What does 'continuing care' mean here?",
+          "a": "Osprey Village pairs independent-living cottages and residences with access to higher levels of care as needs change — a structure most Florida 55+ communities don't offer, and rare on a barrier island."
+        },
+        {
+          "q": "How do the fees work?",
+          "a": "Expect an entry structure plus monthly fees that bundle maintenance, services, and programming. Structures differ by residence type — we walk buyers through the current fee schedule."
+        },
+        {
+          "q": "Is there a waitlist?",
+          "a": "Availability is limited and often list-driven, particularly for cottages. Starting the conversation early matters more here than anywhere else on the island."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "wildlight",
+      "name": "Wildlight",
+      "region": "yulee",
+      "tagline": "Nassau County's new master-planned town, with Wildlight Elementary inside the community.",
+      "intro": "Wildlight is the mainland's headline story: a master-planned new town by Raydient (the Rayonier land company) rising on the east side of I-95 at A1A, designed around a walkable town center, trails, and a 'Florida Lowcountry' architectural code. It is the most complete new-community offering in Nassau County — Wildlight Elementary sits inside the neighborhood, the UF Health Wildlight medical campus anchors the commercial district, and builders including Pulte, Riverside Homes, and Dream Finders deliver everything from townhomes to estate-scale homes across its villages. The plan matters for value: miles of trails, pocket parks, a community pool complex, and reserved conservation land give the neighborhood durable amenities rather than a single clubhouse. Commuters get I-95 access in minutes, Jacksonville's north side in twenty-five, and the Amelia Island beaches in twenty. For buyers who want new construction with a real town plan — not a subdivision off a frontage road — Wildlight is the mainland benchmark, and resale velocity has stayed strong as new phases open.",
+      "schools": "Wildlight Elementary inside the community; Yulee Middle and Yulee High School (Nassau County School District).",
+      "amenities": [
+        "Wildlight Elementary and UF Health campus on-site",
+        "Community pool complex, trails, and pocket parks",
+        "Town-center shops, restaurants, and offices",
+        "CDD and HOA apply — factor both into carrying cost"
+      ],
+      "priceNote": "Townhomes from the $300Ks; single-family roughly $400K–$800K+ by village and builder. Review quarterly as phases release.",
+      "searchUrl": "PENDING",
+      "lat": 30.6272,
+      "lon": -81.6418,
+      "thumb": "grid",
+      "seoDescription": "Wildlight homes for sale in Yulee — Nassau County's master-planned town with on-site elementary school, UF Health campus, trails, and new construction from top builders.",
+      "signature": "The aerial shows a town being drawn in real time: villages of rooftops radiating from a walkable center, the UF Health campus at the front door, trails stitching neighborhoods to ponds and preserved pine, and new phases sketched in cleared earth at the edges.",
+      "distances": [
+        {
+          "label": "I-95",
+          "value": "3 min"
+        },
+        {
+          "label": "Beach",
+          "value": "20 min"
+        },
+        {
+          "label": "JAX Airport",
+          "value": "22 min"
+        },
+        {
+          "label": "Wildlight Elementary",
+          "value": "in-community"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What are the CDD and HOA costs in Wildlight?",
+          "a": "Both apply: HOA dues fund community amenities and standards, while the CDD assessment (on the tax bill) finances infrastructure. Together they add meaningfully to monthly cost — we quote them per village when comparing homes."
+        },
+        {
+          "q": "Which builders are active?",
+          "a": "Pulte, Riverside Homes, Dream Finders, and others across different villages and price points, from townhomes to estate-scale homes. Resale inventory now trades alongside new phases."
+        },
+        {
+          "q": "Is the school really inside the community?",
+          "a": "Yes — Wildlight Elementary opened with the community and sits inside it; older students attend Yulee Middle and Yulee High a short drive away."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "tributary",
+      "name": "Tributary",
+      "region": "yulee",
+      "tagline": "Resort-style amenities and new construction along the wetlands west of I-95.",
+      "intro": "Tributary is Yulee's amenity-forward master-planned community, spread along preserved wetlands on the west side of I-95. Where Wildlight sells a town plan, Tributary sells the amenity core: a large resort-style pool, fitness center, event lawn, playgrounds, dog park, and a full-time lifestyle director programming the calendar — infrastructure that typically shows up in communities twice its price point. Builders including Lennar, Dream Finders, and D.R. Horton build across several collections, from entry single-family homes to larger family plans, most backing to preserve or pond rather than rear neighbors thanks to the wetland-threaded site plan. The location trades island proximity for value and access: I-95 is minutes away, making Jacksonville International Airport roughly twenty minutes and downtown Jacksonville about thirty, while the Amelia Island beaches stay a twenty-five-minute weekend habit. For buyers comparing new-construction value across Nassau County, Tributary consistently offers the most amenity per dollar, with CDD and HOA fees to weigh against that.",
+      "schools": "Zoned for Yulee schools — Yulee Elementary/Primary, Yulee Middle, and Yulee High School.",
+      "amenities": [
+        "Resort-style pool, fitness center, and event lawn",
+        "Full-time lifestyle director and community programming",
+        "Preserve and pond homesites across the wetland site plan",
+        "CDD and HOA fees apply"
+      ],
+      "priceNote": "Roughly $350K–$650K across builder collections; preserve-backing lots carry modest premiums.",
+      "searchUrl": "PENDING",
+      "lat": 30.6188,
+      "lon": -81.6062,
+      "thumb": "river",
+      "seoDescription": "Tributary homes for sale in Yulee, FL — resort-style amenities, preserve homesites, and new construction from Lennar, Dream Finders, and D.R. Horton.",
+      "signature": "From above, Tributary is a necklace of rooftops strung along preserved wetlands — the site plan bends around ponds and cypress instead of erasing them, so most streets back to water or trees. The amenity campus with its resort pool reads clearly at the community's heart.",
+      "distances": [
+        {
+          "label": "I-95",
+          "value": "4 min"
+        },
+        {
+          "label": "JAX Airport",
+          "value": "20 min"
+        },
+        {
+          "label": "Beach",
+          "value": "25 min"
+        },
+        {
+          "label": "A1A shops",
+          "value": "8 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What amenities are actually built?",
+          "a": "The core is complete: resort-style pool, fitness center, event lawn, playground, and dog park, with a lifestyle director programming the calendar year-round."
+        },
+        {
+          "q": "What should I budget for CDD and HOA?",
+          "a": "Both apply, and the CDD portion varies by phase. Get the exact assessment for the specific lot — it changes the monthly math between otherwise similar homes."
+        },
+        {
+          "q": "How does Tributary compare to Wildlight?",
+          "a": "Tributary leads on amenity-per-dollar and preserve lots; Wildlight leads on the town center, on-site school, and long-plan infrastructure. Many buyers cross-shop both — we keep current pricing on each."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "headwaters-lofton-creek",
+      "name": "Headwaters at Lofton Creek",
+      "region": "yulee",
+      "tagline": "Larger homesites under the pines where Lofton Creek begins.",
+      "intro": "Headwaters at Lofton Creek trades the amenity-center model for what much of new Yulee no longer offers: room. The community sits in the pine flatwoods around the upper reaches of Lofton Creek, the blackwater creek that winds south to the Nassau River, and its homesites run noticeably larger than the county's production-builder norm — many a half-acre or more, with preserve buffers keeping the wooded feel intact. Homes are predominantly newer single-family builds with three-car-garage floor plans and the setbacks that larger lots allow, drawing buyers who want new construction without zero-lot-line density: boat and trailer owners, families who want a real yard, and buyers relocating from acreage who aren't ready for a subdivision feel. Lofton Creek itself is a genuine amenity for kayakers and anglers, with launches nearby. Daily logistics stay easy — A1A's commercial corridor, Yulee schools, and the I-95 interchange are all within about ten minutes, and the island beaches are twenty-five.",
+      "schools": "Zoned for Yulee schools — Yulee Elementary, Yulee Middle, and Yulee High School.",
+      "amenities": [
+        "Half-acre-class homesites with preserve buffers",
+        "Lofton Creek kayaking and fishing access nearby",
+        "Lower-density plan; modest HOA",
+        "~10 minutes to A1A corridor shopping and I-95"
+      ],
+      "priceNote": "Roughly $400K–$700K; larger lots and three-car plans set the top of the band.",
+      "searchUrl": "PENDING",
+      "lat": 30.5962,
+      "lon": -81.5728,
+      "thumb": "canopy",
+      "seoDescription": "Headwaters at Lofton Creek homes in Yulee — larger wooded homesites near Lofton Creek with Yulee schools. Pricing, lots, and current homes for sale.",
+      "signature": "The aerial shows what 'room' means here: homesites twice the width of the county's production norm, deep setbacks under pine flatwoods, and the dark thread of Lofton Creek beginning its wander south toward the Nassau River just beyond the preserve buffers.",
+      "distances": [
+        {
+          "label": "A1A corridor",
+          "value": "8 min"
+        },
+        {
+          "label": "I-95",
+          "value": "10 min"
+        },
+        {
+          "label": "Beach",
+          "value": "25 min"
+        },
+        {
+          "label": "Lofton Creek launch",
+          "value": "5 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "How big are the lots?",
+          "a": "Many run a half-acre or more — noticeably larger than typical new construction in the county, with preserve buffers keeping the wooded feel between homes."
+        },
+        {
+          "q": "Can I keep a boat or trailer here?",
+          "a": "Larger lots and side-entry garages make it practical, subject to HOA rules on visibility — a key reason boat owners shortlist this community."
+        },
+        {
+          "q": "What's Lofton Creek like for paddling?",
+          "a": "A genuinely pretty blackwater creek — kayak launches nearby put you on quiet water winding through cypress toward the Nassau River."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "river-glen",
+      "name": "River Glen",
+      "region": "yulee",
+      "tagline": "Established community life on the Nassau River, with a boat ramp of its own.",
+      "intro": "River Glen is the established riverfront community of the Yulee mainland: a master-planned neighborhood on the bluffs and flats along the Nassau River, south of the A1A corridor off US-17. Its defining amenity is direct water access — a community boat ramp and dock on the river put fishing, sandbar afternoons, and the run out to the Intracoastal within a few minutes of any driveway, something no other production community in the county offers at this price point. The amenity package fills out with a pool, fitness center, playgrounds, and tennis, and the housing stock spans the community's phased history: mid-2000s originals through current new construction, giving buyers a wider price ladder than single-builder neighborhoods. Streets on the river side back to marsh and tidal creek views. The trade-off is distance — River Glen sits farther from I-95 than Wildlight or Tributary — but for buyers who rank water access above commute minutes, it is usually the first stop.",
+      "schools": "Zoned for Yulee schools — Yulee Elementary, Yulee Middle, and Yulee High School.",
+      "amenities": [
+        "Community boat ramp and dock on the Nassau River",
+        "Pool, fitness center, tennis, and playgrounds",
+        "Marsh- and river-view homesites on select streets",
+        "CDD and HOA apply"
+      ],
+      "priceNote": "Roughly $350K–$650K; river- and marsh-backing homes command the premium.",
+      "searchUrl": "PENDING",
+      "lat": 30.5735,
+      "lon": -81.5968,
+      "thumb": "river",
+      "seoDescription": "River Glen homes for sale in Yulee — Nassau River community with private boat ramp, pool, and fitness center. Pricing, water-access lots, and listings.",
+      "signature": "From above, River Glen ends the way every Florida buyer hopes a neighborhood ends: streets running down to marsh, a community dock and boat ramp reaching into the Nassau River, and tidal creeks glittering east toward the Intracoastal. The water access is not a rendering — it's in the plat.",
+      "distances": [
+        {
+          "label": "Boat ramp",
+          "value": "in-community"
+        },
+        {
+          "label": "US-17",
+          "value": "3 min"
+        },
+        {
+          "label": "I-95",
+          "value": "12 min"
+        },
+        {
+          "label": "Beach",
+          "value": "28 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Is the boat ramp really private to residents?",
+          "a": "Yes — the ramp and dock on the Nassau River are community amenities, a few minutes from any driveway. No other production community in the county offers this at River Glen's price point."
+        },
+        {
+          "q": "What are the fees?",
+          "a": "HOA plus a CDD assessment fund the amenity center, pool, and river facilities. As always in Yulee, get the parcel-specific CDD number."
+        },
+        {
+          "q": "How's the river for fishing and day trips?",
+          "a": "The Nassau River gives you redfish and trout water immediately, sandbar afternoons in season, and a run to the Intracoastal and Amelia Island by boat."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "north-hampton",
+      "name": "North Hampton",
+      "region": "yulee",
+      "tagline": "The mainland's golf community — an Arnold Palmer signature course fifteen minutes from the island.",
+      "intro": "North Hampton is the Yulee mainland's golf address: a master-planned community built around an Arnold Palmer signature course that winds through wetlands and pine forest off the A1A corridor. The golf course — operated as a public-access club — gives the neighborhood its structure and its views; a large share of homes front fairways or the lakes threaded between them, and the clubhouse, practice facility, and grill anchor community life. Beyond golf, the amenity set is one of the mainland's strongest: resort pool, tennis and pickleball, soccer field, playground, and a private kayak launch on Lofton Creek at the community's edge. Housing stock is mostly custom and semi-custom builds from the mid-2000s onward, larger on average than the county's newer production communities, with established landscaping the newer neighborhoods can't yet match. The position is genuinely between worlds: fifteen minutes to Amelia Island's beaches, similar to I-95 — which is why North Hampton holds a steady following among buyers who want space, golf, and island access in one address.",
+      "schools": "Zoned for Yulee schools — Yulee Elementary, Yulee Middle, and Yulee High School.",
+      "amenities": [
+        "Arnold Palmer signature golf course and clubhouse",
+        "Resort pool, tennis, pickleball, and sports field",
+        "Kayak launch on Lofton Creek",
+        "Established custom-home streetscapes; HOA and CDD apply"
+      ],
+      "priceNote": "Roughly $450K–$900K; golf-front and lake-front customs set the top of the band.",
+      "searchUrl": "PENDING",
+      "lat": 30.6102,
+      "lon": -81.5452,
+      "thumb": "golf",
+      "seoDescription": "North Hampton homes for sale in Yulee — Arnold Palmer golf community with resort amenities and kayak launch, 15 minutes from Amelia Island. Pricing and listings.",
+      "signature": "The aerial reads as a golf course with a neighborhood woven through it: Arnold Palmer's routing curling around lakes and wetlands, custom rooflines set back under established trees, and the kayak launch where the community's edge meets Lofton Creek.",
+      "distances": [
+        {
+          "label": "Golf clubhouse",
+          "value": "in-community"
+        },
+        {
+          "label": "A1A shops",
+          "value": "6 min"
+        },
+        {
+          "label": "Beach",
+          "value": "15 min"
+        },
+        {
+          "label": "I-95",
+          "value": "12 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Do I have to join the golf club?",
+          "a": "No — the Palmer course is public-access, so golf-front living here comes without mandatory club initiation. Memberships and packages are available for regulars."
+        },
+        {
+          "q": "What's included in the amenities?",
+          "a": "Resort pool, tennis and pickleball, sports field, playground, and the private kayak launch on Lofton Creek, alongside the golf infrastructure."
+        },
+        {
+          "q": "How does North Hampton differ from the newer communities?",
+          "a": "Larger custom and semi-custom homes, mature landscaping, and golf — versus the newer amenity-campus model. It competes on space and setting rather than newness."
+        }
+      ],
+      "photos": []
+    },
+    {
+      "slug": "historic-yulee",
+      "name": "Historic Yulee — Blackrock, Nassauville, Hedges & O'Neil",
+      "region": "yulee",
+      "tagline": "The original mainland settlements — acreage, river landings, and old Nassau County.",
+      "intro": "Before the master plans, there was this: the historic settlements of Blackrock, Nassauville, Hedges, and O'Neil, the communities that made up Yulee when it was a railroad stop and a string of river landings. Today they form the county's most individual housing market — properties range from family land held for generations and older brick ranches to new custom homes on multi-acre parcels, with almost nothing built to a common template. Nassauville and the Blackrock corridor run out toward the Nassau River marshes, where dead-end roads finish at tidal creeks and buyers can still find acreage with dock potential; Hedges and O'Neil sit closer to the rail line and US-17. There are no HOAs across most of this area, and zoning accommodates workshops, barns, and horses in places the planned communities never will. For buyers whose list starts with land, privacy, and water access rather than amenities, historic Yulee is where those searches end — and inventory is scarce enough that ready buyers watch it constantly.",
+      "schools": "Zoned for Yulee schools — Yulee Elementary/Primary, Yulee Middle, and Yulee High School.",
+      "amenities": [
+        "Multi-acre parcels and generational land holdings",
+        "Tidal creek and Nassau River access on select roads",
+        "No HOA across most of the area; flexible rural zoning",
+        "Boat ramps and fish camps within minutes"
+      ],
+      "priceNote": "Extremely wide band — roughly $300K for older homes on small parcels to $1M+ for acreage with water. Review quarterly.",
+      "searchUrl": "PENDING",
+      "lat": 30.6055,
+      "lon": -81.533,
+      "thumb": "river",
+      "seoDescription": "Historic Yulee real estate — Blackrock, Nassauville, Hedges, and O'Neil acreage, riverfront parcels, and no-HOA homes in old Nassau County.",
+      "signature": "From above, old Yulee is the map before the master plans: long parcels running back from two-lane roads, homesteads under big oaks, and dead-end lanes finishing at tidal creeks off the Nassau River. The A1A bridge to the island is the one modern line in the frame.",
+      "distances": [
+        {
+          "label": "A1A corridor",
+          "value": "5–15 min"
+        },
+        {
+          "label": "Boat ramps",
+          "value": "minutes"
+        },
+        {
+          "label": "I-95",
+          "value": "10–20 min"
+        },
+        {
+          "label": "Beach",
+          "value": "25–35 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Can I have horses, a workshop, or a barn?",
+          "a": "Across much of Blackrock, Nassauville, Hedges, and O'Neil — yes. Rural zoning categories here accommodate uses the planned communities prohibit. Verify the parcel's zoning for specifics."
+        },
+        {
+          "q": "Is waterfront acreage still findable?",
+          "a": "Occasionally — parcels on tidal creeks off the Nassau River do surface, often quietly. Ready buyers with financing in place win these; they rarely sit."
+        },
+        {
+          "q": "Are there HOAs?",
+          "a": "Mostly no. The area's appeal is exactly that: land, privacy, and flexibility with county zoning as the only overlay."
+        }
+      ],
+      "photos": [
+        {
+          "src": "/photos/neighborhoods/amelia-river-bridge.jpg",
+          "alt": "The A1A bridge over the Amelia River, the mainland's link to the island",
+          "credit": "Michael Rivera",
+          "creditUrl": "https://commons.wikimedia.org/wiki/User:Michael_Rivera",
+          "license": "CC BY-SA 4.0"
+        }
+      ]
+    },
+    {
+      "slug": "yulee-farms",
+      "name": "Yulee Farms",
+      "region": "yulee",
+      "tagline": "New homes on a working-lands edge of the growth corridor.",
+      "intro": "Yulee Farms sits on the transitional edge of the growth corridor — a newer single-family community built where Nassau County's pine plantations and pasture begin to give way to the A1A commercial spine. The name is honest about the setting: the neighborhood borders working timberland, and its home sites carry the flat, open light of former agricultural ground rather than dense subdivision infill. Housing is recent production construction — predominantly one- and two-story family plans from national builders — priced at the accessible end of the county's new-home market, which makes Yulee Farms a frequent first stop for first-time buyers and relocating families comparing against Jacksonville's north-side pricing. The practical case is location arithmetic: the A1A corridor's groceries and services are minutes away, Yulee's school cluster is a short drive, I-95 is close for commuters, and the island beaches remain an easy trip. Buyers should verify lot premiums, HOA scope, and any CDD by phase, as terms have varied across the community's build-out.",
+      "schools": "Zoned for Yulee schools — Yulee Elementary/Primary, Yulee Middle, and Yulee High School.",
+      "amenities": [
+        "Newer production homes at accessible price points",
+        "Borders open timberland — lighter density at the edges",
+        "Minutes to the A1A corridor's shopping and services",
+        "HOA (and CDD where applicable) vary by phase — verify per lot"
+      ],
+      "priceNote": "Roughly $300K–$500K; among the most accessible new-construction bands in the county.",
+      "searchUrl": "PENDING",
+      "lat": 30.6118,
+      "lon": -81.6205,
+      "thumb": "grid",
+      "seoDescription": "Yulee Farms homes for sale — accessible new construction on the Yulee growth corridor with Yulee schools. Pricing, HOA context, and current listings.",
+      "signature": "The aerial is honest about the setting: neat new streets laid into former timberland, open sky, pond edges — and working pine plantation still bordering the back fences. It is the growth corridor's leading edge, photographed mid-arrival.",
+      "distances": [
+        {
+          "label": "A1A shops",
+          "value": "5 min"
+        },
+        {
+          "label": "I-95",
+          "value": "8 min"
+        },
+        {
+          "label": "Yulee schools",
+          "value": "7 min"
+        },
+        {
+          "label": "Beach",
+          "value": "25 min"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What makes Yulee Farms one of the county's most accessible price points?",
+          "a": "Production construction on former agricultural land, without a heavy amenity campus to fund — the savings show up directly in price and fees."
+        },
+        {
+          "q": "Do HOA and CDD terms really vary by phase?",
+          "a": "They have across the build-out — some phases carry different assessments than others. Always pull the lot-specific numbers rather than assuming the community average."
+        },
+        {
+          "q": "What's the commute picture?",
+          "a": "I-95 is about eight minutes, putting Jacksonville's north side within thirty and the airport around twenty-five — the arithmetic that drives most purchases here."
+        }
+      ],
+      "photos": []
+    }
+  ]
+}
