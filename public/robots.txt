@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /forms.html
+
+Sitemap: https://raeganheymann.com/sitemap.xml

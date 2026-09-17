@@ -1,0 +1,3071 @@
+@import "tailwindcss";
+
+/*
+ * Design system — "Coastal Editorial"
+ * Reskinned to the BHHS Heymann Williams luxury reference: near-black
+ * backgrounds with a living cabernet/navy ambient gradient, Playfair Display
+ * headlines, Inter body, and GOLD as the single accent (eyebrows, primary
+ * CTAs, hairline dividers, map pins, focus rings, hover states). Cabernet is
+ * the deep brand surface tone.
+ *
+ * Migration note: the legacy `plum-*` token scale is intentionally remapped
+ * to GOLD tones so existing accent utilities (text-plum-400, bg-plum-600,
+ * pin colors) inherit the new accent without a site-wide rename. New code
+ * should prefer the `gold` / `cabernet` / `charcoal` / `cream` tokens.
+ */
+
+@theme {
+  /* Base surfaces (legacy "ocean" scale → near-black) */
+  --color-ocean-950: #050505;
+  --color-ocean-900: #0c0e13;
+  --color-ocean-800: #161922;
+  --color-ocean-700: #232734;
+
+  /* Accent (legacy "plum" scale → gold) */
+  --color-plum-700: #aa841f;
+  --color-plum-600: #c79a2b;
+  --color-plum-500: #d4af37;
+  --color-plum-400: #e6c875;
+
+  /* Text (legacy "mist" scale → cream / stone) */
+  --color-mist-100: #f5f5f0;
+  --color-mist-200: #e6e2dd;
+  --color-mist-300: #c2beb6;
+  --color-mist-400: #8b8c89;
+
+  --color-sand-200: #d8c9aa;
+  --color-sand-300: #bba982;
+
+  /* Named brand tokens (preferred for new code) */
+  --color-gold: #d4af37;
+  --color-gold-light: #e6c875;
+  --color-gold-dark: #aa841f;
+  --color-cabernet: #582c4d;
+  --color-cabernet-deep: #3a1c31;
+  --color-charcoal: #1a1a1a;
+  --color-cream: #f5f5f0;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, "Times New Roman",
+    serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+
+  --ease-ios: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --line-soft: rgba(255, 255, 255, 0.1);
+  --line-medium: rgba(255, 255, 255, 0.22);
+  --shadow-soft: 0 22px 60px -16px rgba(0, 0, 0, 0.7);
+  --blur-glass: blur(24px) saturate(160%);
+  --glass-filter: blur(6px) saturate(220%) brightness(1.2) contrast(1.08);
+  --glass-hover-filter: blur(16px) saturate(185%) brightness(1.08);
+  --route-filter-start: blur(14px) saturate(0.68) brightness(0.5);
+  --route-control-filter-start: blur(10px) saturate(0.72) brightness(0.58);
+  --route-scrim-filter-start: blur(18px) brightness(0.7);
+}
+
+html[data-experience="mobile-cinematic"],
+html[data-performance="light"] {
+  --glass-filter: blur(4px) saturate(165%) brightness(1.1) contrast(1.02);
+  --glass-hover-filter: blur(5px) saturate(150%) brightness(1.03);
+  --route-filter-start: none;
+  --route-control-filter-start: none;
+  --route-scrim-filter-start: none;
+}
+
+html[data-experience="mobile-cinematic"] {
+  scroll-behavior: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background-color: #050505;
+  color: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* `clip` (not `hidden`) prevents horizontal scroll WITHOUT turning <body>
+     into a scroll container — `hidden` forces overflow-y:auto, which breaks
+     position: sticky (the window scrolls on <html>, not <body>). */
+  overflow-x: clip;
+}
+
+html[data-render-engine="magnetic"] [data-motion-surface] {
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: opacity, transform, filter, clip-path;
+}
+
+html[data-render-load="steady"] {
+  --glass-filter: blur(5px) saturate(175%) brightness(1.12) contrast(1.03);
+  --glass-hover-filter: blur(8px) saturate(155%) brightness(1.03);
+}
+
+html[data-render-load="austere"] {
+  --glass-filter: blur(3px) saturate(145%) brightness(1.06) contrast(1.01);
+  --glass-hover-filter: blur(4px) saturate(138%) brightness(1.01);
+}
+
+html[data-render-load="austere"] [data-motion-surface],
+html[data-render-load="austere"] .card-hover,
+html[data-render-load="austere"] .pill,
+html[data-render-load="austere"] .btn-ghost,
+html[data-render-load="austere"] .input-glass {
+  transition-duration: calc(0.18s * var(--render-motion-scale, 1));
+}
+
+.render-motion-hud {
+  position: fixed;
+  right: 0.75rem;
+  bottom: calc(5.25rem + env(safe-area-inset-bottom));
+  z-index: 99998;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 999px;
+  background: rgba(4, 8, 12, 0.72);
+  padding: 0.45rem 0.6rem;
+  color: var(--color-mist-200);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px) saturate(140%);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.36);
+}
+
+.render-motion-hud strong {
+  color: var(--color-gold-light);
+}
+
+.render-panel {
+  transform-origin: top center;
+}
+
+.listing-result-item,
+.agent-name-card,
+.community-map-card,
+.motion-sheet {
+  contain: layout paint style;
+}
+
+.motion-sheet {
+  top: 0;
+  max-height: calc(100dvh - 0.75rem);
+  background:
+    linear-gradient(145deg, rgba(22, 30, 44, 0.8), rgba(9, 14, 22, 0.92)),
+    rgba(5, 8, 12, 0.9);
+  /* pan-y lets the list scroll natively; the gesture hijacks via preventDefault
+     on a non-passive touchmove when it wants to move the sheet instead. */
+  touch-action: pan-y;
+  /* The settle: a single transform transition, removed mid-drag (data-dragging)
+     so the finger tracks 1:1. */
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.32, 1);
+}
+
+.motion-sheet[data-dragging="true"] {
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-sheet {
+    transition: none;
+  }
+}
+
+.motion-sheet-body {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 720px;
+}
+
+.tour-caption-frame {
+  animation: routePortraitBloomIn 0.36s var(--ease-ios) both;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--color-cream);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #000;
+}
+
+.startup-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  background: #000;
+  color: var(--color-cream);
+  overflow: hidden;
+  pointer-events: auto;
+  opacity: 1;
+  transition: opacity 0.68s var(--ease-ios), visibility 0.68s var(--ease-ios);
+}
+
+.startup-gate-exit {
+  animation: startupGateClear 1.05s var(--ease-ios) forwards;
+  visibility: visible;
+}
+
+.startup-gate-exit .startup-blackout {
+  animation: startupExitBlackout 1.05s var(--ease-ios) forwards;
+}
+
+.startup-gate-exit .startup-mark {
+  animation: startupExitCard 1.05s var(--ease-ios) forwards !important;
+}
+
+.startup-gate-exit .startup-field {
+  animation: startupExitPulse 1.05s var(--ease-ios) forwards !important;
+}
+
+.startup-gate-exit .startup-build-top {
+  animation: startupExitFrame 1.05s var(--ease-ios) forwards !important;
+}
+
+.startup-gate-exit .startup-logo,
+.startup-gate-exit .startup-line,
+.startup-gate-exit .startup-caption {
+  animation: startupExitContent 0.52s var(--ease-ios) forwards !important;
+}
+
+.startup-blackout {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: #000;
+  pointer-events: none;
+  animation: startupBlackout 1.08s var(--ease-ios) forwards;
+}
+
+.startup-mark {
+  position: relative;
+  z-index: 1;
+  width: min(560px, calc(100vw - 2rem));
+  padding: clamp(1.25rem, 3.6vw, 2.15rem);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: clamp(1rem, 3vw, 1.8rem);
+  background:
+    radial-gradient(circle at 50% 56%, rgba(118, 55, 126, 0.48), transparent 42%),
+    radial-gradient(circle at 50% 18%, rgba(88, 44, 77, 0.36), transparent 52%),
+    rgba(255, 255, 255, 0.045);
+  box-shadow:
+    0 0 0 1px rgba(212, 175, 55, 0.18),
+    0 42px 120px rgba(0, 0, 0, 0.86),
+    0 0 70px rgba(212, 175, 55, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 0 70px rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(14px) saturate(145%);
+  text-align: center;
+  animation: startupMarkBuild 1.05s var(--ease-ios) 0.18s both;
+}
+
+.startup-gate-saver .startup-mark {
+  animation: startupMarkBuild 1.05s var(--ease-ios) both;
+}
+
+.startup-build,
+.startup-field {
+  position: absolute;
+  pointer-events: none;
+}
+
+.startup-build {
+  z-index: 2;
+  background: transparent;
+  opacity: 0.9;
+}
+
+.startup-build-top {
+  inset: 0;
+  border: 1.5px solid rgba(230, 200, 117, 0.78);
+  border-radius: inherit;
+  box-shadow:
+    0 0 24px rgba(212, 175, 55, 0.42),
+    inset 0 0 18px rgba(212, 175, 55, 0.08);
+  clip-path: inset(0 100% 0 0 round clamp(1rem, 3vw, 1.8rem));
+  animation: startupFrameReveal 1.05s var(--ease-ios) 0.12s both;
+}
+
+.startup-build-right,
+.startup-build-bottom,
+.startup-build-left {
+  display: none;
+}
+
+.startup-field {
+  inset: -26%;
+  z-index: 0;
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgba(194, 108, 205, 0.34) 0%,
+    rgba(118, 55, 126, 0.24) 28%,
+    rgba(88, 44, 77, 0.12) 46%,
+    transparent 68%
+  );
+  opacity: 0.8;
+  mix-blend-mode: screen;
+  animation: startupPurplePulse 3.8s var(--ease-ios) infinite;
+}
+
+.startup-logo,
+.startup-line,
+.startup-caption {
+  position: relative;
+  z-index: 3;
+}
+
+.startup-logo {
+  display: inline-flex;
+  margin-bottom: clamp(0.9rem, 2.4vw, 1.15rem);
+  transform-origin: center;
+  animation: startupLogoBuild 0.8s var(--ease-ios) 0.58s both;
+}
+
+.startup-logo .logo-frame {
+  border-radius: 1rem;
+  box-shadow: 0 0 26px rgba(212, 175, 55, 0.26),
+    0 18px 70px rgba(0, 0, 0, 0.42);
+}
+
+.startup-logo .logo-plate {
+  border-radius: 0.85rem;
+  padding: clamp(0.65rem, 2.4vw, 1rem) clamp(0.8rem, 3vw, 1.25rem);
+}
+
+.startup-logo .logo-plate img {
+  height: clamp(2.35rem, 7.5vw, 4.75rem);
+  width: auto;
+}
+
+.startup-line {
+  display: block;
+  height: 1px;
+  width: min(260px, 42vw);
+  margin: clamp(0.75rem, 2vw, 1rem) auto 0;
+  transform-origin: center;
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.75), transparent),
+    linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  box-shadow: 0 0 24px rgba(212, 175, 55, 0.55);
+  animation: startupBuildX 0.9s var(--ease-ios) 1.16s both,
+    startupLinePulse 2.2s ease-in-out 2s infinite;
+}
+
+.startup-caption {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mist-300);
+  animation: startupTextClip 0.7s var(--ease-ios) 1.28s both;
+}
+
+/* A gold progress sweep — gives the wait a satisfying, alive payoff. */
+.startup-progress {
+  position: relative;
+  z-index: 3;
+  display: block;
+  width: min(220px, 42vw);
+  height: 2px;
+  margin: 1.1rem auto 0;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.09);
+  animation: startupTextClip 0.7s var(--ease-ios) 1.42s both;
+}
+
+.startup-progress-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -45%;
+  width: 42%;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.9),
+    rgba(255, 255, 255, 0.95),
+    rgba(212, 175, 55, 0.9),
+    transparent
+  );
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.55);
+  animation: startupProgressSweep 1.45s cubic-bezier(0.65, 0, 0.35, 1) 1.5s
+    infinite;
+}
+
+@keyframes startupProgressSweep {
+  0% {
+    left: -45%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* A slow breath on the logo plate so the mark feels alive while it loads. */
+.startup-logo .logo-plate {
+  animation: startupLogoBreath 3.6s ease-in-out 1.7s infinite;
+}
+
+@keyframes startupLogoBreath {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.022);
+  }
+}
+
+@keyframes startupBlackout {
+  0%,
+  34% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes startupGateClear {
+  0%,
+  82% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes startupExitBlackout {
+  0%,
+  54% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  78% {
+    opacity: 0.92;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes startupExitCard {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  28% {
+    opacity: 1;
+    transform: scale(1.025);
+    filter: blur(0);
+  }
+  64% {
+    opacity: 1;
+    transform: scaleX(0.82) scaleY(0.055);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0.18) scaleY(0.01);
+    filter: blur(10px);
+  }
+}
+
+@keyframes startupExitContent {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.96);
+    filter: blur(8px);
+  }
+}
+
+@keyframes startupExitPulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.82);
+    filter: blur(4px);
+  }
+  48% {
+    opacity: 1;
+    transform: scale(1.55);
+    filter: blur(14px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.1);
+    filter: blur(22px);
+  }
+}
+
+@keyframes startupExitFrame {
+  0% {
+    opacity: 0.9;
+    clip-path: inset(0 round clamp(1rem, 3vw, 1.8rem));
+  }
+  62% {
+    opacity: 1;
+    clip-path: inset(48% 4% 48% 4% round 9999px);
+  }
+  100% {
+    opacity: 0;
+    clip-path: inset(49% 44% 49% 44% round 9999px);
+  }
+}
+
+@keyframes startupMarkBuild {
+  from {
+    opacity: 0;
+    transform: scaleX(0.82) scaleY(0.04);
+    filter: blur(14px);
+  }
+  48% {
+    opacity: 1;
+    transform: scaleX(1) scaleY(0.04);
+    filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes startupBuildX {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes startupFrameReveal {
+  from {
+    clip-path: inset(0 100% 0 0 round clamp(1rem, 3vw, 1.8rem));
+  }
+  to {
+    clip-path: inset(0 round clamp(1rem, 3vw, 1.8rem));
+  }
+}
+
+@keyframes startupBuildY {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes startupPurplePulse {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: scale(0.72);
+    filter: blur(0);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.18);
+    filter: blur(8px);
+  }
+}
+
+@keyframes startupLogoBuild {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.92);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes startupTextClip {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 0 100%);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+  }
+}
+
+@keyframes startupLinePulse {
+  0%,
+  100% {
+    opacity: 0.64;
+    transform: scaleX(0.76);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* Keyboard focus — a quiet gold ring everywhere, never on mouse click */
+:focus-visible {
+  outline: 2px solid rgba(212, 175, 55, 0.7);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ---------- Ambient atmosphere ---------- */
+
+/* Translucent brand veil — neutral navy/charcoal grade over the live background
+ * map. Kept low-alpha so the map and the liquid glass read without a pink cast. */
+.bg-ambient {
+  background: linear-gradient(
+    -45deg,
+    rgba(5, 5, 5, 0.34),
+    rgba(20, 32, 46, 0.36),
+    rgba(10, 10, 10, 0.3),
+    rgba(8, 17, 27, 0.38),
+    rgba(13, 19, 32, 0.34)
+  );
+  background-size: 220% 220%;
+}
+
+/* Drift via transform, not background-position. Animating background-position
+ * repaints the full-screen gradient every frame (not compositable); a transform
+ * on an over-scaled layer runs entirely on the GPU. scale(1.35) keeps the edges
+ * covered as it translates, so the look is the same slow flow. */
+@keyframes ambientDrift {
+  from {
+    transform: scale(1.35) translate3d(-4%, -3%, 0);
+  }
+  to {
+    transform: scale(1.35) translate3d(4%, 3%, 0);
+  }
+}
+
+@keyframes ambientColorShift {
+  0%,
+  100% {
+    filter: hue-rotate(0deg) saturate(1);
+  }
+  50% {
+    filter: hue-rotate(18deg) saturate(1.08);
+  }
+}
+
+.animate-ambient {
+  animation: ambientDrift 70s ease-in-out infinite alternate,
+    ambientColorShift 36s ease-in-out infinite;
+  will-change: transform, filter;
+}
+
+@keyframes cinematicPan {
+  0% {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: scale(1.22) translate3d(-2%, 2.5%, 0);
+  }
+}
+
+.animate-cinematic {
+  animation: cinematicPan 48s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes aerialBreath {
+  0%,
+  100% {
+    transform: scale(1.06) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.2) translate3d(-1.6%, 1.2%, 0);
+  }
+}
+
+.zooming-aerial > img {
+  animation: aerialBreath 18s var(--ease-ios) infinite;
+  transform-origin: 50% 45%;
+  will-change: transform;
+}
+
+/* ---------- Frosted glass system ----------
+ * Three layers per glass surface:
+ *   1. tinted background gradient (gives the surface its colour)
+ *   2. backdrop-filter blur + saturation (frosts what's behind)
+ *   3. ::before with a faint dithered noise so big blurred areas don't band
+ *   4. ::after with an inner highlight on the top/left edge (the "lit" rim)
+ * Borders are bright top/left, faint bottom/right — the classic lit-from-above
+ * look that makes the surface feel solid and lifted, not painted-on.
+ */
+
+.glass,
+.glass-deep,
+.glass-green-panel {
+  isolation: isolate;
+}
+
+.glass:not(.absolute):not(.fixed):not(.sticky),
+.glass-deep:not(.absolute):not(.fixed):not(.sticky),
+.glass-green-panel:not(.absolute):not(.fixed):not(.sticky) {
+  position: relative;
+}
+
+.glass::before,
+.glass-deep::before,
+.glass-green-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  z-index: 0;
+}
+
+.glass::after,
+.glass-deep::after,
+.glass-green-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(
+    160% 80% at 20% 0%,
+    rgba(255, 255, 255, 0.14),
+    transparent 55%
+  );
+  z-index: 0;
+}
+
+.glass > *,
+.glass-deep > *,
+.glass-green-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Base tints are deliberately opaque enough to read as a frosted material on
+ * their OWN — no backdrop-filter required. This is the key: some browsers (and
+ * machines with GPU acceleration disabled) report backdrop-filter as supported
+ * but render it fully transparent, which made earlier low-alpha tints vanish.
+ * The blur is layered on as a pure enhancement in the @supports block below; if
+ * it never paints, the surface still looks like glass. */
+.glass {
+  background: linear-gradient(
+    138deg,
+    rgba(120, 122, 134, 0.30),
+    rgba(86, 88, 100, 0.20) 55%,
+    rgba(104, 106, 120, 0.26)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 22px 60px -16px rgba(0, 0, 0, 0.65);
+}
+
+.glass-deep {
+  background: linear-gradient(
+    138deg,
+    rgba(42, 50, 62, 0.74),
+    rgba(20, 26, 36, 0.7) 55%,
+    rgba(34, 42, 54, 0.72)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 28px 80px -22px rgba(0, 0, 0, 0.75);
+}
+
+/* Feature panel — neutral deep glass with a gold rim */
+.glass-green-panel {
+  background: linear-gradient(
+    150deg,
+    rgba(42, 58, 54, 0.78),
+    rgba(18, 28, 32, 0.86)
+  );
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  box-shadow: 0 24px 70px -18px rgba(8, 18, 24, 0.68);
+}
+
+/* The universal Surface Liquid Glass @supports block lives after the button /
+ * pill / input definitions below, so it wins the cascade over their bases. */
+
+/* ---------- Feathered seams ----------
+ * A gradient hairline that fades to nothing at both ends, so adjacent
+ * sections blur together instead of meeting at a hard ruled line.
+ * Use in place of `border-t` / `border-y` on full-bleed section breaks.
+ */
+.seam-top,
+.seam-y {
+  position: relative;
+}
+.seam-top::before,
+.seam-y::before,
+.seam-y::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* Feathered glow rather than a ruled line — sections dissolve into one piece
+   * instead of meeting at a visible border. */
+  height: 24px;
+  pointer-events: none;
+  background: radial-gradient(
+    60% 100% at 50% 50%,
+    rgba(255, 255, 255, 0.05),
+    transparent 72%
+  );
+  filter: blur(2px);
+}
+.seam-top::before,
+.seam-y::before {
+  top: -12px;
+}
+.seam-y::after {
+  bottom: -12px;
+}
+
+/* A finer single-layer card glass for grids (lighter — many on screen) */
+.glass-card {
+  position: relative;
+  background: linear-gradient(
+    140deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: var(--glass-filter);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 14px 36px -12px rgba(0, 0, 0, 0.5);
+}
+
+.agent-name-card {
+  contain: layout paint style;
+  contain-intrinsic-size: auto 188px;
+}
+
+.agent-name-card > a {
+  min-height: 188px;
+  transition: border-color 0.25s ease, background 0.25s ease,
+    backdrop-filter 0.25s ease, box-shadow 0.25s ease,
+    transform 0.25s var(--ease-ios);
+}
+
+.agent-mobile-portrait {
+  display: none;
+}
+
+.agent-name-card-active > a,
+.agent-name-card:hover > a {
+  border-color: rgba(212, 175, 55, 0.32);
+  background:
+    linear-gradient(145deg, rgba(212, 175, 55, 0.1), rgba(255, 255, 255, 0.05)),
+    rgba(6, 10, 16, 0.66);
+  backdrop-filter: var(--glass-hover-filter);
+  box-shadow:
+    0 22px 70px -26px rgba(212, 175, 55, 0.55),
+    0 26px 70px -30px rgba(0, 0, 0, 0.82),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transform: none;
+}
+
+.agent-card-scroll {
+  position: relative;
+  --agent-scroll-shadow: clamp(2.75rem, 8vh, 5rem);
+  scroll-padding-block: var(--agent-scroll-shadow);
+}
+
+.agent-card-scroll::before {
+  content: "";
+  position: sticky;
+  z-index: 2;
+  display: block;
+  height: var(--agent-scroll-shadow);
+  pointer-events: none;
+  opacity: 0.72;
+}
+
+.agent-card-scroll::before {
+  top: 0;
+  margin-bottom: calc(var(--agent-scroll-shadow) * -1);
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0.72),
+    rgba(5, 5, 5, 0.32) 42%,
+    transparent
+  );
+}
+
+.agent-card-scroll .agent-name-card {
+  transition:
+    filter 0.36s var(--ease-ios),
+    opacity 0.36s var(--ease-ios),
+    transform 0.36s var(--ease-ios);
+}
+
+/* The ocean portrait stage — a fixed overlay above the map's Atlantic. The
+   coastline alpha mask (built once per camera settle) clips everything inside
+   .agent-ocean-mask to the water, and each portrait layer animates only
+   compositor-friendly properties, so hover swaps never repaint the map. */
+.agent-ocean-stage {
+  --agent-magnetic-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: max(35rem, 53.5vw);
+  z-index: 2;
+  display: none;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+}
+
+.agent-ocean-mask {
+  position: absolute;
+  inset: 0;
+}
+
+.agent-ocean-portrait {
+  position: absolute;
+  inset: 0;
+  opacity: 0.92;
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+.agent-ocean-portrait img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+  user-select: none;
+}
+
+/* Deep-water wash that burns off as the portrait blooms in. */
+.agent-ocean-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  background:
+    radial-gradient(
+      120% 90% at 52% 46%,
+      rgba(94, 221, 255, 0.2),
+      rgba(0, 121, 150, 0.16) 44%,
+      rgba(0, 22, 34, 0) 100%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(1, 28, 42, 0.5),
+      rgba(0, 82, 98, 0.56) 45%,
+      rgba(0, 18, 30, 0.68)
+    );
+}
+
+/* Static cinematic grade over the portrait. */
+.agent-ocean-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background:
+    linear-gradient(
+      to right,
+      rgba(1, 8, 12, 0.24),
+      rgba(1, 8, 12, 0) 38%,
+      rgba(1, 8, 12, 0.26)
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(2, 8, 12, 0.12),
+      rgba(2, 8, 12, 0) 52%,
+      rgba(2, 8, 12, 0.32)
+    );
+}
+
+.agent-ocean-portrait-enter {
+  z-index: 2;
+  animation:
+    agentPortraitBloomIn 0.46s var(--agent-magnetic-ease) both,
+    agentPortraitDrift 16s ease-in-out 0.46s infinite alternate;
+}
+
+.agent-ocean-portrait-enter::before {
+  animation: agentPortraitWashOff 0.6s ease-out both;
+}
+
+.agent-ocean-portrait-exit {
+  z-index: 1;
+  animation: agentPortraitFadeOut 0.28s cubic-bezier(0.55, 0, 0.8, 0.4) both;
+}
+
+.agent-ocean-caption {
+  position: absolute;
+  z-index: 6;
+  right: clamp(2rem, 5.5vw, 6.5rem);
+  bottom: clamp(2.25rem, 7vh, 5.75rem);
+  left: clamp(3rem, 15vw, 18rem);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0;
+  color: var(--color-mist-100);
+  text-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.75),
+    0 0 28px rgba(11, 18, 25, 0.9);
+  opacity: 0;
+}
+
+.agent-ocean-caption span:first-child {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+  line-height: 1;
+}
+
+.agent-ocean-caption span:last-child {
+  color: var(--color-mist-300);
+  font-size: 0.72rem;
+}
+
+.agent-ocean-caption-enter {
+  animation: agentCaptionIn 0.55s var(--agent-magnetic-ease) 0.12s both;
+}
+
+.agent-ocean-caption-exit {
+  animation: agentCaptionOut 0.2s ease both;
+}
+
+html[data-experience="mobile-cinematic"] .agent-ocean-stage {
+  display: none !important;
+}
+
+@keyframes agentPortraitBloomIn {
+  from {
+    opacity: 0;
+    -webkit-clip-path: ellipse(14% 11% at 52% 46%);
+    clip-path: ellipse(14% 11% at 52% 46%);
+    transform: scale(1.06);
+    filter: saturate(0.6) brightness(0.55);
+  }
+  to {
+    opacity: 0.92;
+    -webkit-clip-path: ellipse(160% 130% at 52% 46%);
+    clip-path: ellipse(160% 130% at 52% 46%);
+    transform: scale(1);
+    filter: saturate(0.84) brightness(0.88);
+  }
+}
+
+/* Slow ken-burns drift once the bloom settles; picks up at scale(1). */
+@keyframes agentPortraitDrift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.035);
+  }
+}
+
+@keyframes agentPortraitWashOff {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes agentPortraitFadeOut {
+  from {
+    opacity: 0.92;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes agentCaptionIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 0.88;
+    transform: none;
+  }
+}
+
+@keyframes agentCaptionOut {
+  from {
+    opacity: 0.88;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.agent-search-summary {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+@media (min-width: 1024px) {
+  .agent-ocean-stage {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .agent-ocean-stage {
+    left: max(31.25rem, 52vw);
+  }
+
+  .agent-ocean-caption {
+    right: 2rem;
+    left: clamp(3rem, 13vw, 8rem);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+}
+
+@media (min-width: 1900px) {
+  .agent-ocean-stage {
+    left: 54vw;
+  }
+}
+
+.agent-roster-shell {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 1.6rem;
+  background:
+    linear-gradient(135deg, rgba(17, 25, 38, 0.76), rgba(45, 28, 52, 0.48)),
+    rgba(5, 8, 12, 0.82);
+  box-shadow: 0 30px 90px -34px rgba(0, 0, 0, 0.86);
+  contain: layout paint;
+}
+
+.agent-roster-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-mist-400);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.agent-roster-head span:first-child {
+  color: var(--color-gold);
+}
+
+.agent-roster-list {
+  max-height: min(68vh, 720px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(212, 175, 55, 0.42) rgba(255, 255, 255, 0.05);
+  scrollbar-gutter: stable;
+  scroll-snap-type: y proximity;
+}
+
+.agent-roster-row {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(108px, 132px) minmax(0, 1.2fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(0.85rem, 2vw, 1.35rem);
+  min-height: 104px;
+  padding: 0.7rem 1rem;
+  color: var(--color-mist-100);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  scroll-snap-align: start;
+  text-decoration: none;
+  transition: background 0.22s ease, transform 0.22s var(--ease-ios),
+    border-color 0.22s ease;
+  animation: agentRowIn 0.42s var(--ease-ios) both;
+  contain: layout paint;
+}
+
+.agent-roster-row:last-child {
+  border-bottom: 0;
+}
+
+.agent-roster-row:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0.1),
+    rgba(255, 255, 255, 0.035),
+    transparent
+  );
+  border-color: rgba(212, 175, 55, 0.24);
+  transform: translateX(6px);
+}
+
+.agent-roster-number {
+  color: rgba(212, 175, 55, 0.58);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.agent-roster-photo {
+  display: flex;
+  aspect-ratio: 4 / 3;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.08), transparent 52%),
+    #080c13;
+}
+
+.agent-roster-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 0.28s var(--ease-ios);
+}
+
+.agent-roster-row:hover .agent-roster-photo img {
+  transform: scale(1.025);
+}
+
+.agent-roster-initials {
+  color: var(--color-mist-200);
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+}
+
+.agent-roster-main,
+.agent-roster-meta {
+  min-width: 0;
+}
+
+.agent-roster-name {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+  color: var(--color-mist-100);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+  line-height: 1.05;
+}
+
+.agent-roster-name > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agent-roster-name > span:last-child {
+  flex: 0 0 auto;
+  border-radius: 9999px;
+  background: rgba(212, 175, 55, 0.14);
+  padding: 0.18rem 0.45rem;
+  color: var(--color-gold);
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.agent-roster-role {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--color-mist-400);
+  font-size: 0.78rem;
+}
+
+.agent-roster-meta {
+  display: grid;
+  gap: 0.35rem;
+  justify-items: end;
+  text-align: right;
+}
+
+.agent-roster-meta span:first-child {
+  overflow: hidden;
+  max-width: 100%;
+  color: var(--color-gold);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.agent-roster-meta span:last-child {
+  overflow: hidden;
+  max-width: 100%;
+  color: var(--color-mist-300);
+  font-size: 0.78rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes agentRowIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .agent-roster-list {
+    max-height: 68vh;
+  }
+
+  .agent-roster-row {
+    grid-template-columns: minmax(92px, 108px) minmax(0, 1fr);
+    min-height: 96px;
+    padding: 0.65rem;
+  }
+
+  .agent-roster-number,
+  .agent-roster-meta {
+    display: none;
+  }
+
+  .agent-roster-name {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.32rem;
+  }
+}
+
+.pill {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border-radius: 9999px;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+.pill:hover {
+  background: rgba(212, 175, 55, 0.1);
+  border-color: rgba(212, 175, 55, 0.4);
+  color: var(--color-gold-light);
+}
+
+.pill-active {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-charcoal);
+}
+
+.pill-active:hover {
+  background: #fff;
+  color: var(--color-charcoal);
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-plum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: background 0.3s var(--ease-ios), transform 0.3s var(--ease-ios),
+    box-shadow 0.3s ease;
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.22);
+}
+
+.btn-plum:hover {
+  background: #fff;
+  color: var(--color-charcoal);
+  transform: scale(1.03);
+}
+
+.btn-plum:active {
+  transform: scale(0.98);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--line-medium);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  color: var(--color-cream);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition: background 0.3s var(--ease-ios), border-color 0.3s ease,
+    color 0.3s ease, transform 0.3s var(--ease-ios);
+}
+
+.btn-ghost:hover {
+  background: #fff;
+  color: var(--color-charcoal);
+  border-color: #fff;
+}
+
+.btn-ghost:active {
+  transform: scale(0.98);
+}
+
+/* ---------- Typography helpers ---------- */
+
+.accent-serif {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-mist-200);
+}
+
+.eyebrow {
+  font-size: 0.66rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+/* Eyebrow with leading gold hairline */
+.eyebrow-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.eyebrow-line::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+/* ---------- Inputs ---------- */
+
+.input-glass {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  /* Frosted like the rest of the glass family */
+  backdrop-filter: blur(16px) saturate(150%);
+  padding: 0.85rem 1.1rem;
+  color: var(--color-cream);
+  font-size: 0.95rem;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.06);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.input-glass::placeholder {
+  color: var(--color-mist-400);
+}
+
+.input-glass:focus {
+  outline: none;
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.4);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+select.input-glass option {
+  background: #14121a;
+  color: var(--color-cream);
+}
+
+/* ---- Surface Liquid Glass — the universal recipe ----
+ * One material across every glass surface: a near-clear white pane bent through
+ * #liquid-glass-filter for the refractive liquid edge, a bright 1.5px top rim,
+ * and stacked inset lights (white top sheen + dark bottom) so the surface looks
+ * wet and lit. Placed here, after the button/pill/input bases, so it wins the
+ * cascade. Chromium/Edge get the url() displacement; Safari ignores url() in
+ * backdrop-filter so it gets a heavier blur and still reads as clean glass;
+ * no-filter browsers keep the opaque frosted base defined earlier. */
+@supports (
+  (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))
+) {
+  .glass,
+  .glass-deep,
+  .glass-green-panel,
+  .glass-card,
+  .pill,
+  .btn-ghost,
+  .input-glass {
+    /* Transparent, refractive liquid glass. No bright top line — just one even
+     * border. The "bubble" pop comes from refraction concentrated at the EDGES:
+     * a crisp inner edge ring + a soft inner rim glow that bends light around
+     * the whole perimeter, brighter than the clearer center. */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 18px 50px -16px rgba(0, 0, 0, 0.5),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 0 18px rgba(255, 255, 255, 0.14),
+      inset 0 0 42px -10px rgba(255, 255, 255, 0.1);
+    /* Low blur so it reads clear/refractive (not frosted) with heavy saturate +
+     * brightness + contrast for the vivid, lensy quality. Author only the
+     * unprefixed prop — lightningcss adds -webkit; writing both makes it ship the
+     * -webkit-only form that Chromium ignores (zero blur in production). */
+    backdrop-filter: var(--glass-filter);
+  }
+
+  .glass,
+  .glass-card,
+  .glass-deep {
+    background: linear-gradient(
+      138deg,
+      rgba(150, 150, 168, 0.14),
+      rgba(110, 110, 130, 0.08) 55%,
+      rgba(140, 140, 160, 0.12)
+    );
+  }
+  /* Content panels keep a faint dark backing only for long-form legibility. */
+  .glass-deep {
+    background: linear-gradient(
+      138deg,
+      rgba(24, 32, 42, 0.3),
+      rgba(12, 18, 26, 0.22) 55%,
+      rgba(20, 28, 38, 0.28)
+    );
+  }
+  .pill:not(.pill-active),
+  .btn-ghost,
+  .input-glass {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  /* Feature panel keeps depth + gold rim without the old cabernet wash. */
+  .glass-green-panel {
+    background: linear-gradient(
+      150deg,
+      rgba(34, 50, 48, 0.42),
+      rgba(12, 24, 30, 0.52)
+    );
+    border-top-color: rgba(212, 175, 55, 0.6);
+  }
+
+  /* Keep the input focus ring on top of the liquid rim. */
+  .input-glass:focus {
+    border-color: rgba(212, 175, 55, 0.7);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.4),
+      inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Chromatic-aberration text — a faint red/blue fringe that makes labels read as
+ * if seen through the glass lens. Subtle by design; apply to glass labels. */
+.chromatic-text {
+  text-shadow: calc(0px * -0.5) 0 0.5px rgba(255, 0, 0, 0.8),
+    calc(0px * 0.5) 0 0.5px rgba(0, 0, 255, 0.8);
+}
+
+/* Mobile / tablet (the native app shell — bottom tabs + draggable map sheet —
+ * is active below lg/1024px): the SVG displacement lens and heavy blur repaint
+ * badly over the live, draggable map (visible flicker + jank when panning the
+ * map under the glass sheet). Drop the lens and use a lighter, rock-steady
+ * frost so map interaction stays buttery. */
+@media (max-width: 1023px) {
+  .glass,
+  .glass-deep,
+  .glass-green-panel,
+  .glass-card,
+  .pill,
+  .btn-ghost,
+  .input-glass,
+  .glass-nav {
+    backdrop-filter: var(--glass-filter) !important;
+  }
+}
+
+.agent-name-card:hover > a.glass,
+.agent-name-card-active > a.glass {
+  background:
+    linear-gradient(145deg, rgba(212, 175, 55, 0.12), rgba(255, 255, 255, 0.07)),
+    rgba(6, 10, 16, 0.72) !important;
+  backdrop-filter: var(--glass-hover-filter) !important;
+  -webkit-backdrop-filter: var(--glass-hover-filter) !important;
+  border-color: rgba(212, 175, 55, 0.34);
+  box-shadow:
+    0 22px 70px -26px rgba(212, 175, 55, 0.55),
+    0 26px 70px -30px rgba(0, 0, 0, 0.82),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+/* Floating-pill treatment for the bottom tab bar only (a <nav>). Scoped to
+   `nav` so it never lands on the top <header>, which also carries .glass-nav —
+   the shared `bottom` here would otherwise combine with the header's `top: 0`
+   and stretch it to full-viewport height, covering the page content. */
+html[data-experience="mobile-cinematic"] nav.glass-nav {
+  inset-inline: 0.75rem;
+  bottom: 0.55rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.6rem;
+  background:
+    linear-gradient(135deg, rgba(23, 34, 48, 0.82), rgba(8, 12, 18, 0.9)),
+    rgba(4, 8, 12, 0.88);
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+/* Sliding gold indicator under the active dock tab. Transform-only so it never
+   touches layout while gliding between slots. The pill sits just under the top
+   edge of the floating nav and tracks the active tab via translateX. */
+.mobile-tab-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2.5px;
+  border-radius: 0 0 3px 3px;
+  padding-inline: 1.1rem;
+  background-clip: content-box;
+  background-image: linear-gradient(
+    90deg,
+    rgba(212, 175, 55, 0),
+    rgba(212, 175, 55, 0.95) 22%,
+    rgba(212, 175, 55, 0.95) 78%,
+    rgba(212, 175, 55, 0)
+  );
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.5);
+  transition:
+    transform 0.34s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.22s ease;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Active tab lifts its icon a hair and gains a soft gold glow. */
+.mobile-tab.is-active svg {
+  transform: translateY(-1px) scale(1.06);
+  filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.45));
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-tab svg {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-tab-indicator {
+    transition: opacity 0.2s ease;
+  }
+  .mobile-tab.is-active svg,
+  .mobile-tab svg {
+    transition: none;
+  }
+}
+
+/* Touch-native segmented control (beds / baths / sort). A recessed glass track
+   with a single gold thumb that slides between equal-width segments. No track
+   padding, so the thumb's width (100/n %) exactly matches a flex-1 segment and
+   translateX(value * 100%) lands dead-on each slot. The gold is inset via a
+   transparent border + padding-box clip rather than physical offsets. */
+.segmented {
+  border-radius: 0.9rem;
+  background: rgba(4, 8, 12, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.segmented-thumb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  /* width set inline to 100/n % */
+  border: 3px solid transparent;
+  border-radius: 0.9rem;
+  background:
+    linear-gradient(150deg, #e6c55b, #d4af37) padding-box;
+  box-shadow:
+    0 6px 16px -6px rgba(212, 175, 55, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.segmented-segment:active {
+  transform: scale(0.96);
+}
+@media (prefers-reduced-motion: reduce) {
+  .segmented-thumb {
+    transition: none;
+  }
+}
+
+/* The top header stays a full-width bar pinned to the top — just give it the
+   dark glass surface when scrolled (glass-deep alone is transparent on mobile). */
+html[data-experience="mobile-cinematic"] header.glass-nav {
+  background:
+    linear-gradient(135deg, rgba(23, 34, 48, 0.82), rgba(8, 12, 18, 0.9)),
+    rgba(4, 8, 12, 0.88);
+}
+
+html[data-experience="mobile-cinematic"] .motion-sheet {
+  inset-inline: 0.6rem;
+  bottom: calc(0.6rem + env(safe-area-inset-bottom));
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 1.65rem;
+  /* Promote to its own compositor layer so the drag transform never repaints. */
+  will-change: transform;
+}
+
+/* The backdrop blur is dropped during the drag/settle via an inline !important
+   style in BottomSheet (see setDragging) — re-compositing the blur every frame
+   is the main source of drag jank. data-dragging stays on the element as a hook
+   for any future styling. */
+
+html[data-experience="mobile-cinematic"] .motion-sheet[data-snap="peek"] {
+  box-shadow:
+    0 -12px 42px rgba(0, 0, 0, 0.42),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+html[data-experience="mobile-cinematic"] .motion-sheet-header {
+  padding-inline: 0.9rem;
+}
+
+html[data-experience="mobile-cinematic"] .motion-sheet-body {
+  padding-inline: 0.9rem;
+}
+
+/* Collapse chevron — lives in the empty header space, drops the sheet to peek. */
+.motion-sheet-collapse {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.motion-sheet-collapse:hover {
+  color: var(--color-gold);
+}
+
+html[data-experience="mobile-cinematic"] .listings-mobile-sheet,
+html[data-experience="mobile-cinematic"] .agents-mobile-sheet,
+html[data-experience="mobile-cinematic"] .communities-mobile-sheet {
+  background:
+    linear-gradient(160deg, rgba(21, 31, 42, 0.82), rgba(4, 9, 14, 0.94)),
+    rgba(4, 8, 12, 0.9);
+}
+
+html[data-experience="mobile-cinematic"] .listing-card-mobile {
+  min-height: 7rem;
+  border-radius: 1.25rem;
+  transition: transform 0.16s ease;
+}
+html[data-experience="mobile-cinematic"] .listing-card-mobile:active {
+  transform: scale(0.98);
+}
+
+/* ---------- Mobile featured advisor strip ---------- */
+
+.agent-featured-strip {
+  margin: 0.35rem -0.25rem 0.25rem;
+}
+
+.agent-featured-label {
+  margin: 0 0 0.6rem 0.5rem;
+  color: var(--color-gold);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.agent-featured-scroll {
+  display: flex;
+  gap: 0.7rem;
+  overflow-x: auto;
+  padding: 0.15rem 0.5rem 0.65rem;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.agent-featured-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.agent-featured-card {
+  position: relative;
+  display: flex;
+  width: 5.5rem;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  scroll-snap-align: start;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.agent-featured-photo {
+  position: relative;
+  display: grid;
+  width: 5.5rem;
+  height: 5.5rem;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(212, 175, 55, 0.28), transparent 52%),
+    rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 0 0 1px rgba(212, 175, 55, 0.3),
+    0 14px 34px rgba(0, 0, 0, 0.42);
+  transition: transform 0.3s var(--ease-ios), box-shadow 0.3s var(--ease-ios);
+}
+
+.agent-featured-card:active .agent-featured-photo {
+  transform: scale(0.94);
+  box-shadow:
+    inset 0 0 0 1px rgba(212, 175, 55, 0.5),
+    0 8px 22px rgba(0, 0, 0, 0.5);
+}
+
+.agent-featured-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 26%;
+  filter: saturate(0.86) contrast(1.05) brightness(0.9);
+}
+
+.agent-featured-photo span {
+  color: var(--color-gold-light);
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+}
+
+.agent-featured-name {
+  max-width: 5.5rem;
+  overflow: hidden;
+  color: var(--color-mist-200);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+html[data-experience="mobile-cinematic"] .agent-name-card > a {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 0.95rem;
+  min-height: 9.25rem;
+  padding: 0.68rem;
+  border-radius: 1.4rem;
+}
+
+html[data-experience="mobile-cinematic"] .agent-mobile-portrait {
+  position: relative;
+  display: grid;
+  min-height: 7rem;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 1.05rem;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(212, 175, 55, 0.22), transparent 48%),
+    rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    0 12px 34px rgba(0, 0, 0, 0.35);
+}
+
+html[data-experience="mobile-cinematic"] .agent-mobile-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 28%;
+  filter: saturate(0.82) contrast(1.05) brightness(0.86);
+}
+
+html[data-experience="mobile-cinematic"] .agent-mobile-portrait span {
+  color: var(--color-gold-light);
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+}
+
+html[data-experience="mobile-cinematic"] .agent-name-card-copy {
+  min-width: 0;
+}
+
+html[data-experience="mobile-cinematic"] .agent-name-card-copy > div:first-child {
+  align-items: center;
+}
+
+html[data-experience="mobile-cinematic"] .agent-name-card-copy p.mt-8 {
+  margin-top: 1.1rem;
+  font-size: 1.42rem;
+}
+
+html[data-experience="mobile-cinematic"] .agent-search-summary {
+  -webkit-line-clamp: 1;
+}
+
+html[data-experience="mobile-cinematic"] .map-app-side-grade {
+  display: none;
+}
+
+html[data-experience="mobile-cinematic"] .mobile-more-sheet {
+  inset-inline: 0.75rem;
+  bottom: 0.65rem;
+  border-radius: 1.6rem;
+}
+
+/* ---------- Motion ---------- */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fadeUp 1s var(--ease-ios) both;
+}
+
+.fade-up-late {
+  animation: fadeUp 1s var(--ease-ios) 0.25s both;
+}
+
+/* Route change — gentle opacity wipe (fixed/cover layers stay stable) */
+@keyframes routeFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.route-fade {
+  animation: routeFade 0.5s ease both;
+}
+
+/* Route bloom — matches the agent portrait handoff: focus in from the center,
+ * no bounce/pop, and no page-wrapper transform that would break glass blur. */
+body.route-blooming
+  main
+  :is(
+    .glass,
+    .glass-deep,
+    .glass-card,
+    .glass-green-panel,
+    .agent-name-card > a,
+    .card-hover:not(.agent-name-card)
+  ) {
+  animation: routePortraitBloomIn 0.42s var(--ease-ios) both;
+  transform-origin: 52% 46%;
+  will-change: opacity, filter, clip-path, transform;
+}
+
+body.route-blooming
+  main
+  :is(
+    .btn-plum,
+    .btn-ghost,
+    .pill,
+    .input-glass,
+    button.glass,
+    button.glass-deep,
+    a.glass,
+    a.glass-deep
+  ) {
+  animation: routePortraitControlIn 0.34s var(--ease-ios) both;
+  transform-origin: 52% 46%;
+  will-change: opacity, filter, clip-path;
+}
+
+html[data-experience="mobile-cinematic"] body.route-blooming main * {
+  animation: none !important;
+}
+
+/* Mobile route transition: the heavy clip-path + filter bloom is disabled above
+   for performance, so give mobile a cheap, spatial "forward push" instead —
+   transform + opacity only, on the same curated surfaces (never on `main`,
+   which would break glass-over-map frosting and shift the fixed sheet). The
+   html[data-experience] prefix outranks the blanket `none` rule just above. */
+html[data-experience="mobile-cinematic"]
+  body.route-blooming
+  main
+  :is(
+    .glass,
+    .glass-deep,
+    .glass-card,
+    .glass-green-panel,
+    .agent-name-card > a,
+    .card-hover:not(.agent-name-card)
+  ) {
+  animation: routeMobilePush 0.32s var(--ease-ios) both !important;
+  will-change: opacity, transform;
+}
+html[data-experience="mobile-cinematic"]
+  body.route-blooming
+  main
+  :is(.btn-plum, .btn-ghost, .pill, .input-glass, button.glass, a.glass) {
+  animation: routeMobilePush 0.28s var(--ease-ios) both !important;
+  will-change: opacity, transform;
+}
+
+@keyframes routeMobilePush {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-experience="mobile-cinematic"] body.route-blooming main :is(
+      .glass,
+      .glass-deep,
+      .glass-card,
+      .glass-green-panel,
+      .agent-name-card > a,
+      .card-hover,
+      .btn-plum,
+      .btn-ghost,
+      .pill,
+      .input-glass
+    ) {
+    animation: none !important;
+  }
+}
+
+body.route-blooming
+  main
+  :is(
+    [class*="bg-gradient-to-r"],
+    [class*="bg-gradient-to-l"],
+    [class*="bg-gradient-to-t"],
+    [class*="bg-gradient-to-b"]
+  ) {
+  animation: routePortraitScrimIn 0.48s var(--ease-ios) both;
+  will-change: opacity, filter;
+}
+
+@keyframes routePortraitBloomIn {
+  0% {
+    opacity: 0;
+    -webkit-clip-path: ellipse(2% 2% at 52% 46%);
+    clip-path: ellipse(2% 2% at 52% 46%);
+    filter: var(--route-filter-start);
+    transform: translate3d(0, 0, -120px) scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    -webkit-clip-path: ellipse(145% 115% at 52% 46%);
+    clip-path: ellipse(145% 115% at 52% 46%);
+    filter: none;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes routePortraitControlIn {
+  0% {
+    opacity: 0;
+    -webkit-clip-path: ellipse(8% 48% at 52% 50%);
+    clip-path: ellipse(8% 48% at 52% 50%);
+    filter: var(--route-control-filter-start);
+  }
+  100% {
+    opacity: 1;
+    -webkit-clip-path: ellipse(140% 140% at 52% 50%);
+    clip-path: ellipse(140% 140% at 52% 50%);
+    filter: none;
+  }
+}
+
+@keyframes routePortraitScrimIn {
+  0% {
+    opacity: 0;
+    filter: var(--route-scrim-filter-start);
+  }
+  100% {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .startup-blackout,
+  .startup-mark,
+  .startup-build,
+  .startup-field,
+  .startup-logo,
+  .startup-logo .logo-plate,
+  .startup-line,
+  .startup-caption,
+  .startup-progress,
+  .startup-progress-fill,
+  .agent-ocean-portrait,
+  .agent-ocean-portrait::before,
+  .agent-ocean-caption,
+  .route-fade,
+  body.route-blooming
+    :is(
+      .glass,
+      .glass-deep,
+      .glass-card,
+      .glass-green-panel,
+      .agent-name-card > a,
+      .card-hover,
+      .btn-plum,
+      .btn-ghost,
+      .pill,
+      .input-glass
+    ) {
+    animation: none !important;
+  }
+
+  /* Without animations, layers fall back to static states: the incoming
+     portrait/caption simply shows and the outgoing one simply hides. */
+  .agent-ocean-portrait-exit,
+  .agent-ocean-caption-exit {
+    opacity: 0 !important;
+  }
+
+  .agent-ocean-caption-enter {
+    opacity: 0.88;
+  }
+}
+
+/* Scroll-reveal — toggled by the global IntersectionObserver in Layout */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.1s var(--ease-ios), transform 1.1s var(--ease-ios);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal.delay-100 {
+  transition-delay: 0.1s;
+}
+.reveal.delay-200 {
+  transition-delay: 0.2s;
+}
+.reveal.delay-300 {
+  transition-delay: 0.3s;
+}
+
+@keyframes pinPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(212, 175, 55, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+  }
+}
+
+.pin-pulse {
+  animation: pinPulse 2.6s ease-out infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.04);
+  }
+  50% {
+    transform: translate3d(-1.2%, -0.8%, 0) scale(1.07);
+  }
+}
+
+.aerial-drift {
+  animation: drift 36s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Aerial Tour — per-beat progress fill. Drives beat advance via animationend,
+   so pausing (animation-play-state) stays perfectly in sync. */
+@keyframes tourFill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.tour-fill {
+  transform-origin: left center;
+  animation-name: tourFill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up,
+  .fade-up-late,
+  .pin-pulse,
+  .aerial-drift,
+  .zooming-aerial > img,
+  .animate-cinematic,
+  .animate-ambient {
+    animation: none;
+    filter: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+.card-hover {
+  transition: transform 0.4s var(--ease-ios), border-color 0.4s ease,
+    box-shadow 0.4s ease;
+  /* Skip rendering/layout of cards while they're off-screen (long grids), and
+   * remember their size so scrolling never jumps. Big paint win with the heavy
+   * backdrop-filter captions. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 360px;
+}
+
+/* The recently-viewed strip is a few small cards in a horizontal scroller.
+   Safari applies the 360px content-visibility placeholder height to them even
+   when on-screen, stretching the cards. Render them normally — there's no perf
+   need to skip layout for a short strip. */
+.recently-viewed-card.card-hover {
+  content-visibility: visible;
+  contain-intrinsic-size: auto;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.32);
+  box-shadow: 0 34px 90px rgba(0, 0, 0, 0.55);
+}
+
+html[data-experience="mobile-cinematic"] .card-hover,
+html[data-experience="mobile-cinematic"] .glass,
+html[data-experience="mobile-cinematic"] .glass-deep,
+html[data-experience="mobile-cinematic"] .glass-card {
+  transition-duration: 0.18s;
+}
+
+html[data-experience="mobile-cinematic"] .card-hover:hover {
+  transform: none;
+}
+
+/* Touch press feedback: a quick, light scale-down so every tap answers
+   immediately. Transform-only — never touches layout. */
+html[data-experience="mobile-cinematic"] .card-hover:active {
+  transform: scale(0.985);
+  transition-duration: 0.12s;
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-experience="mobile-cinematic"] .card-hover:active {
+    transform: none;
+  }
+}
+
+.agent-name-card.card-hover {
+  content-visibility: visible;
+  contain-intrinsic-size: auto 188px;
+}
+
+.agent-name-card.card-hover:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.community-map-card {
+  contain: layout paint style;
+  contain-intrinsic-size: auto 214px;
+}
+
+.community-map-card > a {
+  min-height: 214px;
+  transition: border-color 0.25s ease, background 0.25s ease,
+    backdrop-filter 0.25s ease, box-shadow 0.25s ease;
+}
+
+.community-map-card-active > a,
+.community-map-card:hover > a {
+  background:
+    linear-gradient(145deg, rgba(212, 175, 55, 0.1), rgba(255, 255, 255, 0.06)),
+    rgba(6, 10, 16, 0.72) !important;
+  border-color: rgba(212, 175, 55, 0.34);
+  backdrop-filter: var(--glass-hover-filter) !important;
+  -webkit-backdrop-filter: var(--glass-hover-filter) !important;
+  box-shadow:
+    0 22px 70px -26px rgba(212, 175, 55, 0.55),
+    0 26px 70px -30px rgba(0, 0, 0, 0.82),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+}
+
+.community-map-card.card-hover:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.map-app-side-grade {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 7, 9, 0.92) 0%,
+      rgba(5, 7, 9, 0.7) 46%,
+      rgba(5, 7, 9, 0.24) 76%,
+      transparent 100%
+    ),
+    radial-gradient(ellipse at 22% 48%, rgba(8, 20, 31, 0.5), transparent 72%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 7%,
+    #000 88%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 7%,
+    #000 88%,
+    transparent 100%
+  );
+}
+
+.community-detail-water-grade {
+  background:
+    radial-gradient(ellipse at 82% 34%, rgba(5, 10, 16, 0.08), transparent 34%),
+    linear-gradient(90deg, rgba(5, 7, 9, 0.32) 0%, transparent 48%),
+    linear-gradient(180deg, rgba(5, 7, 9, 0.34) 0%, transparent 22%, rgba(5, 7, 9, 0.38) 100%);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 72%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(to bottom, #000 0%, #000 72%, transparent 100%);
+}
+
+.community-map-top-grade {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(5, 7, 9, 0.9) 0%,
+      rgba(5, 7, 9, 0.56) 38%,
+      rgba(5, 7, 9, 0.18) 66%,
+      transparent 92%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(5, 7, 9, 0.62) 0%,
+      rgba(5, 7, 9, 0.5) 44%,
+      rgba(5, 7, 9, 0.18) 72%,
+      transparent 100%
+    );
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 50%, transparent 100%);
+}
+
+.community-map-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.3),
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  box-shadow: 0 0 42px rgba(212, 175, 55, 0.12);
+}
+
+.community-card-dock-panel {
+  background:
+    linear-gradient(180deg, rgba(5, 7, 9, 0) 0%, rgba(5, 7, 9, 0.82) 18%, rgba(5, 7, 9, 0.95) 100%),
+    radial-gradient(circle at 18% 0%, rgba(212, 175, 55, 0.12), transparent 36%);
+}
+
+.community-card-track {
+  width: max-content;
+  min-width: 100%;
+  align-items: stretch;
+}
+
+.community-map-card-dock {
+  flex: 0 0 clamp(26rem, 31vw, 36rem);
+  contain-intrinsic-size: auto 300px;
+  scroll-snap-align: start;
+}
+
+.community-map-card-dock > a {
+  display: flex;
+  min-height: clamp(16.5rem, 31vh, 20.5rem);
+  flex-direction: column;
+  padding: clamp(1.25rem, 1.7vw, 1.75rem);
+}
+
+.community-map-card-dock h2 {
+  margin-top: auto;
+  font-size: clamp(2.05rem, 2.5vw, 3.2rem);
+  letter-spacing: -0.03em;
+}
+
+.community-map-card-dock p {
+  max-width: 34rem;
+}
+
+.community-map-scroll {
+  position: relative;
+  --community-scroll-shadow: clamp(2.75rem, 8vh, 5rem);
+  scroll-padding-block: var(--community-scroll-shadow);
+}
+
+.community-map-scroll-x {
+  scroll-padding-inline: clamp(1rem, 2vw, 2rem);
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+
+.community-map-scroll-x::before,
+.community-map-scroll-x::after {
+  display: none;
+}
+
+.community-map-scroll::before,
+.community-map-scroll::after {
+  content: "";
+  position: sticky;
+  z-index: 2;
+  display: block;
+  height: var(--community-scroll-shadow);
+  pointer-events: none;
+  opacity: 0.72;
+}
+
+.community-map-scroll::before {
+  top: 0;
+  margin-bottom: calc(var(--community-scroll-shadow) * -1);
+  background: linear-gradient(
+    to bottom,
+    rgba(5, 5, 5, 0.72),
+    rgba(5, 5, 5, 0.32) 42%,
+    transparent
+  );
+}
+
+.community-map-scroll::after {
+  bottom: 0;
+  margin-top: calc(var(--community-scroll-shadow) * -1);
+  background: linear-gradient(
+    to top,
+    rgba(5, 5, 5, 0.54),
+    rgba(5, 5, 5, 0.2) 48%,
+    transparent
+  );
+}
+
+/* Logo plate — white backing + gold gradient frame for the maroon lockup */
+.logo-frame {
+  padding: 2px;
+  border-radius: 0.7rem;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.6),
+    rgba(255, 255, 255, 0.2),
+    rgba(212, 175, 55, 0.6)
+  );
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+  transition: box-shadow 0.3s ease;
+}
+
+.logo-frame:hover {
+  box-shadow: 0 0 26px rgba(212, 175, 55, 0.32);
+}
+
+.logo-plate {
+  background: #fff;
+  border-radius: 0.55rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- Custom cursor (desktop pointer only) ---------- */
+
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.2s, opacity 0.3s ease;
+  mix-blend-mode: difference;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+#custom-cursor::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body.cursor-active * {
+  cursor: none !important;
+}
+
+body.cursor-hover #custom-cursor {
+  width: 58px;
+  height: 58px;
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* Hide scrollbars on horizontal chip rails */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- Live map (MapLibre) markers ---------- */
+
+.maplibregl-map {
+  font-family: var(--font-sans);
+}
+
+.lm-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  transition: transform 0.25s var(--ease-ios);
+  will-change: transform;
+}
+
+.lm-marker:hover {
+  transform: scale(1.08);
+  z-index: 5;
+}
+
+.lm-dot {
+  display: block;
+  height: 8px;
+  width: 8px;
+  border-radius: 9999px;
+  background: var(--color-mist-100);
+  box-shadow: 0 0 0 2px rgba(5, 5, 7, 0.55), 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+.lm-dot-major {
+  height: 11px;
+  width: 11px;
+  background: var(--color-gold);
+  box-shadow: 0 0 0 2px rgba(5, 5, 7, 0.5), 0 0 0 0 rgba(212, 175, 55, 0.55);
+  animation: pinPulse 2.6s ease-out infinite;
+}
+
+.lm-label {
+  white-space: nowrap;
+  border-radius: 9999px;
+  padding: 0.1rem 0.5rem;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: var(--color-mist-100);
+  background: rgba(5, 5, 7, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  opacity: 0.85;
+  transition: opacity 0.25s ease, border-color 0.25s ease;
+}
+
+.lm-marker:hover .lm-label,
+.lm-marker[data-active="true"] .lm-label {
+  opacity: 1;
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.lm-marker[data-active="true"] .lm-dot {
+  background: var(--color-gold);
+}
+
+/* Neighborhood/area label — visually distinct from a gold price pin (uppercase,
+ * gold-rimmed dark capsule), floated above the cluster, and clickable. */
+.lm-marker[data-kind="area"] {
+  z-index: 3;
+  transition: opacity 0.35s ease;
+}
+/* Hidden at the wide overview (host gets .lm-far below the zoom threshold), so
+ * labels fade in only as you zoom into an area. */
+.lm-far .lm-marker[data-kind="area"] {
+  /* !important beats MapLibre's per-frame inline opacity on the marker. */
+  opacity: 0 !important;
+  pointer-events: none;
+}
+.lm-area {
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--color-gold-light);
+  background: rgba(5, 5, 7, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 9999px;
+  padding: 0.22rem 0.6rem;
+  backdrop-filter: blur(8px);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  opacity: 0.9;
+  transition: opacity 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+.lm-marker[data-kind="area"]:hover .lm-area {
+  opacity: 1;
+  color: #fff;
+  border-color: rgba(212, 175, 55, 0.75);
+}
+
+.lm-pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 9999px;
+  padding: 0.2rem 0.6rem;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  background: var(--color-gold);
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  transition: background 0.25s ease, transform 0.25s var(--ease-ios);
+}
+
+.lm-marker[data-kind="pin"] {
+  z-index: 4;
+}
+
+.lm-marker[data-active="true"] .lm-pin {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+/* MapLibre's default attribution/logo hidden — we show our own chip */
+.maplibregl-ctrl-attrib,
+.maplibregl-ctrl-logo {
+  display: none !important;
+}
+
+/* =====================================================================
+ * Raegan Heymann — additions on top of the coastal design system
+ * ===================================================================== */
+
+/* Skip link */
+.skip-link {
+  position: fixed;
+  top: -3rem;
+  left: 1rem;
+  z-index: 200;
+  border-radius: 9999px;
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+  padding: 0.6rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: top 0.2s var(--ease-ios);
+}
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+/* Scroll progress hairline */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: 2px;
+  z-index: 60;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--color-gold-dark), var(--color-gold), var(--color-gold-light));
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
+}
+
+/* Split-text word reveal */
+.split .split-w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+.split .split-w > span {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* 3D tilt (cards that contain their own media) */
+.tilt {
+  transition: transform 0.55s var(--ease-ios), box-shadow 0.55s var(--ease-ios);
+  transform-style: preserve-3d;
+}
+
+/* Local time chip */
+.time-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(5, 5, 5, 0.45);
+  padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-mist-300);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.time-chip-dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 9999px;
+  background: var(--color-gold);
+  box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.6);
+  animation: pinPulse 2.6s ease-out infinite;
+}
+
+/* The sea band */
+.sea {
+  background: #06090f;
+  isolation: isolate;
+}
+.sea-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.sea-fallback {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background:
+    radial-gradient(120% 60% at 62% 38%, rgba(212, 175, 55, 0.28) 0%, transparent 55%),
+    linear-gradient(180deg, #0a0f18 0%, #1f2a33 38%, #0b2a33 46%, #062029 60%, #03141b 100%);
+  transition: opacity 0.6s var(--ease-ios);
+}
+.sea-fallback.is-on {
+  opacity: 1;
+  animation: seaFallbackDrift 30s ease-in-out infinite alternate;
+}
+@keyframes seaFallbackDrift {
+  from {
+    background-position: 0% 0%, 0% 0%;
+  }
+  to {
+    background-position: 6% 0%, 0% 4%;
+  }
+}
+/* Grade: sits the ocean in the dark/gold system and feathers the edges. */
+.sea-grade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, #050505 0%, rgba(5, 5, 5, 0.35) 14%, rgba(5, 5, 5, 0.08) 45%, rgba(5, 5, 5, 0.45) 82%, #050505 100%),
+    radial-gradient(120% 90% at 50% 50%, transparent 55%, rgba(5, 5, 5, 0.55) 100%);
+}
+
+/* Portrait bloom (from coastal's ocean portrait, reused for Raegan) */
+.portrait-bloom {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2rem;
+  isolation: isolate;
+}
+.portrait-bloom img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  filter: saturate(0.9) brightness(0.92);
+  transform: scale(1);
+}
+.portrait-bloom.is-in img {
+  animation:
+    agentPortraitBloomIn 0.9s var(--ease-ios) both,
+    agentPortraitDrift 16s ease-in-out 0.9s infinite alternate;
+}
+.portrait-bloom::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(5, 5, 5, 0.65) 100%),
+    radial-gradient(90% 70% at 50% 20%, transparent 60%, rgba(5, 5, 5, 0.35) 100%);
+}
+.portrait-bloom::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+    inset 0 0 60px rgba(212, 175, 55, 0.08);
+}
+
+/* Featured listing — the card floats on the light of its own photograph. */
+.featured-backdrop {
+  position: absolute;
+  inset: -4rem -14vw 3rem;
+  z-index: 0;
+  pointer-events: none;
+  background-size: cover;
+  background-position: center;
+  filter: blur(70px) saturate(1.3) brightness(0.55);
+  transform: scale(1.12);
+  opacity: 0.55;
+  -webkit-mask-image: radial-gradient(ellipse 68% 58% at 50% 42%, #000 35%, transparent 76%);
+  mask-image: radial-gradient(ellipse 68% 58% at 50% 42%, #000 35%, transparent 76%);
+}
+.featured-photo-echo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(26px) saturate(1.15) brightness(0.72);
+  transform: scale(1.12);
+}
+.featured-drift {
+  animation: featuredDrift 26s ease-in-out infinite alternate;
+}
+@keyframes featuredDrift {
+  from {
+    transform: scale(1.02) translate(0, 0);
+  }
+  to {
+    transform: scale(1.08) translate(-1.5%, 1%);
+  }
+}
+
+/* Concierge chat */
+.chat-log {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+.chat-bubble {
+  max-width: 88%;
+  border-radius: 1.25rem;
+  padding: 0.8rem 1rem;
+  font-size: 0.925rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+  animation: fadeUp 0.45s var(--ease-ios) both;
+}
+.chat-bubble-user {
+  margin-left: auto;
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+  border-bottom-right-radius: 0.4rem;
+}
+.chat-bubble-ai {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-mist-100);
+  border-bottom-left-radius: 0.4rem;
+}
+.chat-typing span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 3px;
+  border-radius: 9999px;
+  background: var(--color-gold);
+  animation: chatTyping 1.1s ease-in-out infinite;
+}
+.chat-typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.chat-typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+@keyframes chatTyping {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  40% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+/* Seller stepper */
+.stepper-step {
+  animation: stepperIn 0.5s var(--ease-ios) both;
+}
+@keyframes stepperIn {
+  from {
+    opacity: 0;
+    transform: translateX(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.opt {
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-mist-200);
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+  transition:
+    background 0.25s var(--ease-ios),
+    color 0.25s var(--ease-ios),
+    border-color 0.25s var(--ease-ios),
+    transform 0.25s var(--ease-ios);
+}
+.opt:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  transform: translateY(-1px);
+}
+.opt[aria-pressed="true"] {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-charcoal);
+}
+
+/* Horizontal reel (mobile flyover) */
+.reel-track {
+  display: flex;
+  gap: 1rem;
+  will-change: transform;
+}
+.reel-card {
+  flex: 0 0 min(78vw, 22rem);
+}
+
+/* Reduced motion: hold every addition still. */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress,
+  .time-chip-dot,
+  .sea-fallback.is-on,
+  .featured-drift,
+  .portrait-bloom.is-in img,
+  .chat-bubble,
+  .stepper-step {
+    animation: none !important;
+  }
+  .split .split-w > span {
+    transform: none !important;
+  }
+  .tilt {
+    transform: none !important;
+  }
+}

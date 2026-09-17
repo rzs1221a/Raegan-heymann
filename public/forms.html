@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Form definitions</title>
+</head>
+<body>
+  <!--
+    Static twins of the React forms so Netlify's build-time parser knows which
+    fields to accept. If you add a field to a React form, add it here too or
+    it will be dropped silently. Nothing links to this page.
+  -->
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks">
+    <input type="hidden" name="form-name" value="contact" />
+    <input name="bot-field" />
+    <input name="first" /><input name="last" /><input name="email" /><input name="phone" />
+    <input name="interest" /><textarea name="message"></textarea>
+    <input name="consent" /><input name="consent_text" />
+    <textarea name="concierge_context"></textarea>
+    <input name="page" /><input name="session" /><input name="submitted_at" />
+  </form>
+
+  <form name="concierge-lead" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="concierge-lead" />
+    <input name="bot-field" />
+    <input name="name" /><input name="contact" />
+    <textarea name="transcript"></textarea>
+    <input name="consent" /><input name="consent_text" />
+    <input name="page" /><input name="session" /><input name="submitted_at" />
+  </form>
+
+  <form name="valuation" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="valuation" />
+    <input name="bot-field" />
+    <input name="name" /><input name="email" /><input name="phone" />
+    <input name="area" /><input name="address" /><input name="type" />
+    <input name="beds" /><input name="baths" /><input name="sqft" />
+    <input name="condition" /><input name="timeline" /><input name="upgrades" />
+    <textarea name="story"></textarea>
+    <input name="consent" /><input name="consent_text" />
+    <input name="page" /><input name="session" /><input name="submitted_at" />
+  </form>
+</body>
+</html>

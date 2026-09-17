@@ -1,0 +1,12 @@
+{
+  "name": "Raegan Heymann · Amelia Island Realtor",
+  "short_name": "Raegan Heymann",
+  "description": "Amelia Island native. Realtor and co-owner, Berkshire Hathaway HomeServices Heymann Williams Realty.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    { "src": "/brand/favicon.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

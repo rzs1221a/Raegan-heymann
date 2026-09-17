@@ -1,0 +1,55 @@
+{
+  "_comment": "Single source of truth for Raegan's public details. Every number marked CONFIRM below must be verified with Raegan before launch. The prerender script reads this file directly.",
+  "name": "Raegan Heymann",
+  "firstName": "Raegan",
+  "title": "Realtor® · Co-owner",
+  "tagline": "Amelia Island Native",
+  "license": "",
+  "cell": "(904) 479-0130",
+  "cellE164": "+19044790130",
+  "email": "raeganheymann@gmail.com",
+  "siteUrl": "https://raeganheymann.com",
+  "siteUrlNote": "CONFIRM the production domain before launch (canonical, OG, sitemap all read this).",
+  "office": {
+    "name": "Berkshire Hathaway HomeServices Heymann Williams Realty",
+    "short": "Heymann Williams Realty",
+    "affiliation": "Berkshire Hathaway HomeServices",
+    "address": "720 Magnolia Lane, Fernandina Beach, FL 32034",
+    "street": "720 Magnolia Lane",
+    "city": "Fernandina Beach",
+    "state": "FL",
+    "zip": "32034",
+    "phone": "(904) 261-9311",
+    "phoneE164": "+19042619311",
+    "email": "info@heymannwilliams.com",
+    "url": "https://www.heymannwilliams.com",
+    "searchUrl": "https://ameliaisland.heymannwilliams.com/search"
+  },
+  "socials": {
+    "instagram": "https://www.instagram.com/raegan_heymann_realtor",
+    "facebook": "https://www.facebook.com/MyAmeliaHome",
+    "linkedin": "https://www.linkedin.com/in/raegan-heymann-53659287"
+  },
+  "headshot": {
+    "thumb": "/agents/optimized/thumb/raegan-heymann-1677490.webp",
+    "preview": "/agents/optimized/preview/raegan-heymann-1677490.webp",
+    "detail": "/agents/optimized/detail/raegan-heymann-1677490.webp"
+  },
+  "bio": {
+    "short": "Born and raised on Amelia Island, Raegan Heymann is a Realtor and co-owner of Berkshire Hathaway HomeServices Heymann Williams Realty. She has spent more than a decade helping people find, sell, and build homes on the island she has always called home.",
+    "paragraphs": [
+      "Raegan grew up on Amelia Island, which means she knows it the way only a native can: which streets catch the morning light, where the marsh goes gold in October, and which blocks quietly hold their value year after year.",
+      "She graduated from the University of North Florida in 2003 and built her early career in finance and mortgage servicing. That background still shapes how she works: every recommendation is grounded in the numbers, and every contract is read the way a lender would read it.",
+      "Since moving into real estate she has been a consistent top producer, with more than 300 closed sales across Amelia Island, Fernandina Beach, and the Nassau County mainland. As co-owner of Heymann Williams Realty she has also been involved in residential development projects on the island, giving her a builder's-eye view of what is coming next.",
+      "Raegan lives on the island with her family. If you call, you reach her."
+    ]
+  },
+  "stats": [
+    { "value": 300, "suffix": "+", "label": "Closed sales", "note": "CONFIRM exact count with Raegan" },
+    { "value": 10, "suffix": "+", "label": "Years selling the island", "note": "CONFIRM" },
+    { "text": "2014–24", "label": "Top producer, every year", "note": "CONFIRM the year range" },
+    { "text": "Native", "label": "Born & raised on Amelia Island", "note": "" }
+  ],
+  "serviceAreas": ["Amelia Island", "Fernandina Beach", "Yulee", "Nassau County", "Crane Island", "Amelia Island Plantation"],
+  "disclosure": "Heymann Williams Realty is an independently owned and operated franchisee of BHH Affiliates, LLC. Berkshire Hathaway HomeServices and the Berkshire Hathaway HomeServices symbol are registered service marks of Columbia Insurance Company, a Berkshire Hathaway affiliate. Equal Housing Opportunity."
+}

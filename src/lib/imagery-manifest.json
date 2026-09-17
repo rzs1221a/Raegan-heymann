@@ -1,0 +1,38 @@
+{
+  "coast-hero": {
+    "id": "coast-hero",
+    "src": "/imagery/coast-hero.jpg",
+    "width": 1792,
+    "height": 2304,
+    "bounds": {
+      "west": -81.826171875,
+      "east": -81.2109375,
+      "north": 30.90222470517145,
+      "south": 30.22110185248599
+    }
+  },
+  "coast-full": {
+    "id": "coast-full",
+    "src": "/imagery/coast-full.jpg",
+    "width": 768,
+    "height": 1280,
+    "bounds": {
+      "west": -81.9140625,
+      "east": -80.859375,
+      "north": 31.052933985705156,
+      "south": 29.535229562948455
+    }
+  },
+  "crane-detail": {
+    "id": "crane-detail",
+    "src": "/imagery/crane-detail.jpg",
+    "width": 1280,
+    "height": 1024,
+    "bounds": {
+      "west": -81.507568359375,
+      "east": -81.45263671875,
+      "north": 30.637912028341123,
+      "south": 30.600093873550065
+    }
+  }
+}
